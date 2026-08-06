@@ -3,13 +3,12 @@
     <app-logo />
 
     <nav class="nav" [class.nav--open]="menuOpen()" [attr.aria-label]="isArabic() ? 'القائمة الرئيسية' : 'Main navigation'">
-      @for (link of links; track link.path + (link.fragment ?? '')) {
+      @for (link of links; track link.path) {
         <a
           class="nav__link"
           [routerLink]="link.path"
-          [fragment]="link.fragment"
           (click)="closeMenu()">{{ t(link.label) }}</a>
-      } 
+      }
 
       <button type="button" class="lang lang--mobile" (click)="switchLang()">
         {{ isArabic() ? 'English' : 'العربية' }}

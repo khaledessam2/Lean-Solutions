@@ -310,7 +310,7 @@ export const PROJECTS: ProjectCard[] = [
     category: 'elearning',
     tag: { ar: 'تعليم الكتروني', en: 'E-learning' },
     title: { ar: 'التعليم الإلكتروني في جهة حكومية', en: 'E-learning for a government agency' },
-    text: { ar: '', en: '' },
+    text: { ar: 'حول المشروع مشروع التعليم الإلكتروني في جهة حكومية هو مبادرة استراتيجية تهدف إلى رفع كفاءة منتسبي الجهة الحكومية عبر منصة', en: 'The e-learning project within the government entity aims to highlight the strategic importance of raising awareness among participants in the government initiative through a dedicated platform.' },
   },
   {
     slug: 'e-learning-in-a-government-agency',

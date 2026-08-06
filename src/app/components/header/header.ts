@@ -14,8 +14,8 @@ export class Header {
   private readonly i18n = inject(I18n);
 
   /** router links, so the nav still works when the About page is the active route */
-  readonly links: { label: Text; path: string; fragment?: string }[] = [
-    { label: { ar: 'الرئيسية', en: 'Home' }, path: '/', fragment: 'home' },
+  readonly links: { label: Text; path: string }[] = [
+    { label: { ar: 'الرئيسية', en: 'Home' }, path: '/' },
     { label: { ar: 'من نحن', en: 'About us' }, path: '/about' },
     { label: { ar: 'الخدمات', en: 'Services' }, path: '/services' },
     { label: { ar: 'المشاريع', en: 'Projects' }, path: '/projects' },

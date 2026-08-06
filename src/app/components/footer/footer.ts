@@ -28,35 +28,35 @@ export class Footer {
     terms: { ar: 'الشروط والأحكام', en: 'Terms and conditions' },
   };
 
-  readonly columns: { title: Text; links: { label: Text; href: string }[] }[] = [
+  readonly columns: { title: Text; links: { label: Text}[] }[] = [
     {
       title: { ar: 'روابط سريعة', en: 'Quick links' },
       links: [
-        { label: { ar: 'الرئيسية', en: 'Home' }, href: '#home' },
-        { label: { ar: 'معلومات عنا', en: 'About us' }, href: '#about' },
-        { label: { ar: 'المشاريع', en: 'Projects' }, href: '#projects' },
-        { label: { ar: 'الخدمات', en: 'Services' }, href: '#services' },
-        { label: { ar: 'اتصل بنا', en: 'Contact us' }, href: '#contact' },
+        { label: { ar: 'الرئيسية', en: 'Home' }},
+        { label: { ar: 'معلومات عنا', en: 'About us' } },
+        { label: { ar: 'المشاريع', en: 'Projects' }},
+        { label: { ar: 'الخدمات', en: 'Services' }},
+        { label: { ar: 'اتصل بنا', en: 'Contact us' }},
       ],
     },
     {
       title: { ar: 'تعليم الكتروني', en: 'E-learning' },
       links: [
-        { label: { ar: 'تطوير نظام إدارة التعلم', en: 'LMS development' }, href: '#services' },
-        { label: { ar: 'استراتيجية المحتوى', en: 'Content strategy' }, href: '#services' },
-        { label: { ar: 'تصميم الدورات', en: 'Course design' }, href: '#services' },
-        { label: { ar: 'التعلم عبر الهاتف', en: 'Mobile learning' }, href: '#services' },
-        { label: { ar: 'تحليلات التعلم', en: 'Learning analytics' }, href: '#services' },
+        { label: { ar: 'تطوير نظام إدارة التعلم', en: 'LMS development' }},
+        { label: { ar: 'استراتيجية المحتوى', en: 'Content strategy' } },
+        { label: { ar: 'تصميم الدورات', en: 'Course design' } },
+        { label: { ar: 'التعلم عبر الهاتف', en: 'Mobile learning' } },
+        { label: { ar: 'تحليلات التعلم', en: 'Learning analytics' } },
       ],
     },
     {
       title: { ar: 'تحول رقمي', en: 'Digital transformation' },
       links: [
-        { label: { ar: 'تطوير الويب', en: 'Web development' }, href: '#services' },
-        { label: { ar: 'تصميم الويب', en: 'Web design' }, href: '#services' },
-        { label: { ar: 'الهندسة الكاملة', en: 'Full-stack engineering' }, href: '#services' },
-        { label: { ar: 'تطوير الهواتف المحمولة', en: 'Mobile development' }, href: '#services' },
-        { label: { ar: 'تطوير الواجهة الأمامية', en: 'Front-end development' }, href: '#services' },
+        { label: { ar: 'تطوير الويب', en: 'Web development' }},
+        { label: { ar: 'تصميم الويب', en: 'Web design' }},
+        { label: { ar: 'الهندسة الكاملة', en: 'Full-stack engineering' }},
+        { label: { ar: 'تطوير الهواتف المحمولة', en: 'Mobile development' }},
+        { label: { ar: 'تطوير الواجهة الأمامية', en: 'Front-end development' }},
       ],
     },
     {
@@ -64,22 +64,18 @@ export class Footer {
       links: [
         {
           label: { ar: 'تطوير الاستراتيجيات وتنفيذها', en: 'Strategy development and execution' },
-          href: '#services',
         },
         {
           label: {
             ar: 'تطوير النماذج التشغيلية واطر الحوكمة',
             en: 'Operating models and governance frameworks',
-          },
-          href: '#services',
+          }
         },
         {
           label: { ar: 'ادارة وتشغيل مكاتب ادارة المشاريع', en: 'PMO setup and operation' },
-          href: '#services',
         },
         {
           label: { ar: 'تطوير ادلة واجراءات العمل', en: 'Manuals and work procedures' },
-          href: '#services',
         },
       ],
     },

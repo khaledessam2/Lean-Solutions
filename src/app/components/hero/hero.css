@@ -127,6 +127,12 @@
 
 .hero__arrow svg { width: 20px; height: 17px; }
 
+/* glyphs are drawn for RTL; flex order flips the buttons in English, so mirror
+   them to keep the left button pointing left and the right one pointing right.
+   :host-context, not html[dir] — view encapsulation would scope the `html` part
+   of the selector and the rule would never match. */
+:host-context([dir='ltr']) .hero__arrow svg { transform: scaleX(-1); }
+
 .hero__arrow:hover {
   color: #fff;
   background: rgba(255, 255, 255, .12);
@@ -139,7 +145,9 @@
   outline-offset: 2px;
 }
 
-.hero__dots { display: flex; align-items: center; gap: 12px; direction: ltr; }
+/* no direction override — the dots follow the page, so slide 1 sits on the
+   right in Arabic and on the left in English */
+.hero__dots { display: flex; align-items: center; gap: 12px; }
 
 .hero__dot {
   width: 8px;

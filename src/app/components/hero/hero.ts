@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { I18n, Text } from '../../core/i18n';
 import { Lottie } from '../../shared/lottie/lottie';
-import { RouterLink } from "@angular/router";
+import { RouterLink } from '@angular/router';
 
 /** the animation shown beside a slide — the same files the live site plays */
 interface Art {
@@ -51,6 +51,27 @@ export class Hero implements OnInit {
   };
 
   readonly slides: Slide[] = [
+    {
+      title: {
+        ar: 'حلول متكاملة للتعلم الالكتروني والتحول الرقمي والاستشارات الادارية',
+        en: 'Integrated solutions for e-learning, digital transformation, and management consulting',
+      },
+      paragraphs: [
+        {
+          ar: 'في لين بيزنس سوليشنز نقدّم منظومة شاملة للتعليم والتدريب الإلكتروني (LMS)، تركّز على تقديم تجربة تعليمية متكاملة عبر منصات ذكية تدعم جميع أنماط التعلّم: التعلّم الذاتي، التفاعلي المباشر، والحضوري.',
+          en: 'At Lean Business Solutions, we provide a comprehensive Learning Management System (LMS) designed to deliver a holistic educational experience through smart platforms that support all learning modes: self-paced, interactive live, and in-person.',
+        },
+        {
+          ar: 'ما يميّز حلولنا هو اعتمادنا على تقنيات الذكاء الاصطناعي والتحليلات الذكية، حيث نقوم بتخصيص مسارات التعلّم، وتقديم توصيات تفاعلية، وتتبع الأداء عبر تقارير متقدمة تدعم صانعي القرار في المؤسسات. كما نقدّم تكاملًا مرنًا مع الأنظمة الحكومية والمنصات المؤسسية',
+          en: 'What sets our solutions apart is the integration of artificial intelligence and advanced analytics. We personalize learning paths, provide interactive recommendations, and track performance through advanced reporting tools that empower decision-makers within organizations. In addition, we offer flexible integration with government systems and enterprise platforms',
+        },
+      ],
+      art: {
+        src: 'lottie/online-learning-platform.json',
+        ratio: 1,
+        label: { ar: 'رسم متحرك لمنصة التعلم الإلكتروني', en: 'Animated online learning platform' },
+      },
+    },
     {
       title: {
         ar: 'حلول بالذكاء الاصطناعي في التعليم الالكتروني والتحول الرقمي والاستشارات الالكترونية',
@@ -101,28 +122,7 @@ export class Hero implements OnInit {
         ratio: 1,
         label: { ar: 'رسم متحرك لتطوير المنصات الرقمية', en: 'Animated software development' },
       },
-    },
-    {
-      title: {
-        ar: 'حلول متكاملة للتعلم الالكتروني والتحول الرقمي والاستشارات الادارية',
-        en: 'Integrated solutions for e-learning, digital transformation, and management consulting',
-      },
-      paragraphs: [
-        {
-          ar: 'في لين بيزنس سوليشنز نقدّم منظومة شاملة للتعليم والتدريب الإلكتروني (LMS)، تركّز على تقديم تجربة تعليمية متكاملة عبر منصات ذكية تدعم جميع أنماط التعلّم: التعلّم الذاتي، التفاعلي المباشر، والحضوري.',
-          en: 'At Lean Business Solutions, we provide a comprehensive Learning Management System (LMS) designed to deliver a holistic educational experience through smart platforms that support all learning modes: self-paced, interactive live, and in-person.',
-        },
-        {
-          ar: 'ما يميّز حلولنا هو اعتمادنا على تقنيات الذكاء الاصطناعي والتحليلات الذكية، حيث نقوم بتخصيص مسارات التعلّم، وتقديم توصيات تفاعلية، وتتبع الأداء عبر تقارير متقدمة تدعم صانعي القرار في المؤسسات. كما نقدّم تكاملًا مرنًا مع الأنظمة الحكومية والمنصات المؤسسية',
-          en: 'What sets our solutions apart is the integration of artificial intelligence and advanced analytics. We personalize learning paths, provide interactive recommendations, and track performance through advanced reporting tools that empower decision-makers within organizations. In addition, we offer flexible integration with government systems and enterprise platforms',
-        },
-      ],
-      art: {
-        src: 'lottie/online-learning-platform.json',
-        ratio: 1,
-        label: { ar: 'رسم متحرك لمنصة التعلم الإلكتروني', en: 'Animated online learning platform' },
-      },
-    },
+    }
   ];
 
   readonly active = signal(0);

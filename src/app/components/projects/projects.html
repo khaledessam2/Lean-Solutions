@@ -27,14 +27,14 @@
           </div>
         }
       </div>
-    </div>
+    </div>  
 
     <div class="projects__arrows">
       <button type="button" class="nav-btn" (click)="step(-1)" [disabled]="index() === 0" [attr.aria-label]="t(copy.prev)">
-        <svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 12 10" aria-hidden="true"><path d="M11 5L1 5M11 5L7 1M11 5L7 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
       <button type="button" class="nav-btn" (click)="step(1)" [disabled]="index() >= maxIndex()" [attr.aria-label]="t(copy.next)">
-        <svg viewBox="0 0 12 10" aria-hidden="true"><path d="M11 5L1 5M11 5L7 1M11 5L7 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
     </div>
   </div>

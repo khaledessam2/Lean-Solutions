@@ -45,13 +45,10 @@
 
 .footer__col ul { display: grid; gap: 12px; }
 
-.footer__col a {
+.footer__col li {
   font-size: 15px;
   line-height: 1.7;
-  transition: color .25s ease, padding-inline-start .25s ease;
 }
-
-.footer__col a:hover { color: var(--orange); }
 
 .footer__bar {
   position: relative;
@@ -67,7 +64,6 @@
 }
 
 .footer__legal { display: flex; gap: 28px; }
-.footer__legal a:hover { color: var(--orange); }
 
 @media (max-width: 1080px) {
   .footer__grid { grid-template-columns: 1fr 1fr 1fr; }

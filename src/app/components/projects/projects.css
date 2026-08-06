@@ -81,7 +81,7 @@
    to a second line no longer pushes its button below the neighbouring ones */
 .pcard__btn { margin-top: auto; }
 
-.projects__arrows { display: flex; gap: 12px; margin-top: 10px; }
+.projects__arrows { display: flex; justify-content: end; gap: 12px; margin-top: 10px; }
 
 @media (max-width: 1023px) { .slot { flex-basis: 50%; } }
 

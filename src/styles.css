@@ -220,9 +220,11 @@ ul { margin: 0; padding: 0; list-style: none; }
 .arrow svg { width: 12px; height: 10px; }
 
 /* the "go forward" arrow inside buttons and links mirrors with the writing
-   direction. Carousel prev/next do NOT — like the live site, they stay a plain
-   left/right pair in both languages. */
+   direction. Carousel prev/next stay a plain left/right pair in both languages —
+   but flex order swaps their sides, so the glyphs mirror to compensate: the
+   button on the left always points left, the one on the right always right. */
 html[dir='ltr'] .arrow { transform: scaleX(-1); }
+html[dir='ltr'] .nav-btn svg { transform: scaleX(-1); }
 
 /* ---------- carousel controls ---------- */
 .nav-btn {
