@@ -1,0 +1,88 @@
+<app-page-banner [heading]="heading()" [trail]="trail()" />
+
+@let svc = service();
+@let prj = project();
+
+@if (svc) {
+  <section class="section detail">
+    <div class="container">
+      <figure class="detail__cover" appReveal>
+        <img [src]="serviceCover" [alt]="t(svc.title)" loading="lazy" />
+      </figure>
+
+      <h2 class="detail__title" appReveal>{{ t(svc.title) }}</h2>
+
+      <div class="detail__features" appReveal>
+        <h3>{{ t(svc.featuresTitle) }}</h3>
+        <ul class="checklist">
+          @for (feature of svc.features; track $index) {
+            <li><app-check-icon />{{ t(feature) }}</li>
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft process">
+    <div class="container">
+      <div class="head-block" appReveal>
+        <span class="eyebrow">{{ t(svc.processTitle) }}</span>
+        @if (t(svc.processLead)) {
+          <h2 class="section-title">{{ t(svc.processLead) }}</h2>
+        }
+      </div>
+
+      <ol class="steps">
+        @for (step of svc.steps; track step.no; let i = $index) {
+          <li class="step" [appReveal]="i * 90">
+            <span class="step__no">{{ step.no }}</span>
+            <h3 class="step__title">{{ t(step.title) }}</h3>
+            <p class="step__text">{{ t(step.text) }}</p>
+          </li>
+        }
+      </ol>
+    </div>
+  </section>
+} @else if (prj) {
+  <section class="section detail">
+    <div class="container">
+      <figure class="detail__cover" appReveal>
+        <img [src]="prj.image" [alt]="t(prj.title)" loading="lazy" />
+      </figure>
+
+      <div class="detail__grid">
+        <div class="detail__main" appReveal>
+          <h2 class="detail__title">{{ t(prj.aboutTitle) }}</h2>
+          <p class="detail__lead">{{ t(prj.aboutText) }}</p>
+
+          <ul class="checklist">
+            @for (feature of prj.features; track $index) {
+              <li><app-check-icon />{{ t(feature) }}</li>
+            }
+          </ul>
+        </div>
+
+        <aside class="specs" appReveal>
+          <h3 class="specs__title">{{ t(prj.infoTitle) }}</h3>
+          <dl class="specs__list">
+            @for (pair of prj.info; track $index) {
+              <div class="specs__row">
+                <dt>{{ t(pair.label) }}</dt>
+                <dd>{{ t(pair.value) }}</dd>
+              </div>
+            }
+          </dl>
+        </aside>
+      </div>
+    </div>
+  </section>
+} @else {
+  <section class="section detail">
+    <div class="container">
+      <h2 class="detail__title">{{ t(notFound.title) }}</h2>
+      <p class="detail__lead">{{ t(notFound.text) }}</p>
+    </div>
+  </section>
+}
+
+<app-contact />

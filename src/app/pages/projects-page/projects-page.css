@@ -1,0 +1,145 @@
+.prj { background: #fff; }
+.prj .head-block { max-width: 780px; }
+
+/* the heading keeps the start of the row, the filters sit at the far end of it */
+.prj__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 40px;
+}
+
+.prj__head .head-block { flex: 1 1 420px; }
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tab {
+  padding: 12px 24px;
+  border-radius: 6px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.tab.is-active { background: var(--orange); color: #fff; }
+.tab:not(.is-active):hover { background: var(--accent-pale); }
+
+/* the grid is a single column when a filter turns up nothing, so the panel
+   spans every track rather than sitting in a lone card-sized column */
+.empty {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 56px 32px 60px;
+  border: 1px dashed var(--accent-soft);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--surface-soft), #fff);
+}
+
+.empty__icon {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--accent);
+  box-shadow: var(--shadow-card);
+}
+
+.empty__icon svg { width: 40px; height: 40px; }
+
+.empty__title {
+  margin-top: 24px;
+  color: var(--ink);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.empty__text {
+  margin-top: 10px;
+  max-width: 460px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.empty .btn { margin-top: 26px; }
+
+@media (max-width: 560px) {
+  .empty { padding: 40px 20px 44px; }
+  .empty__icon { width: 68px; height: 68px; }
+  .empty__icon svg { width: 32px; height: 32px; }
+  .empty__title { font-size: 19px; }
+}
+
+.prj__grid {
+  margin-top: 46px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+}
+
+.pcard {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.pcard:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+
+.pcard__media { overflow: hidden; }
+
+.pcard__media img {
+  width: 100%;
+  height: 236px;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+
+.pcard:hover .pcard__media img { transform: scale(1.06); }
+
+.pcard__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 26px 26px;
+}
+
+.pcard__tag { color: var(--accent); font-size: 14px; font-weight: 700; }
+
+.pcard__title {
+  margin-top: 6px;
+  font-size: 21px;
+  font-weight: 600;
+  min-height: 55px;
+}
+
+.pcard__text {
+  margin-top: 16px;
+  margin-bottom: 22px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.9;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* pins every button to the bottom, whatever the title or text length */
+.pcard__btn { margin-top: auto; }

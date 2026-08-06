@@ -1,0 +1,19 @@
+.about { background: #fff; }
+
+.about__top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 30px;
+}
+
+.about__cta { align-self: end; }
+
+/* the cards + photo grid lives in <app-pillars>, shared with the About page */
+.about__grid { display: block; margin-top: 54px; }
+
+@media (max-width: 900px) {
+  .about__top { grid-template-columns: 1fr; }
+  .about__cta { justify-self: start; }
+  .about__grid { margin-top: 36px; }
+}

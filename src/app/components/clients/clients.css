@@ -1,0 +1,37 @@
+.clients .head-block { text-align: center; margin-inline: auto; max-width: 720px; }
+.clients .section-lead { margin-inline: auto; }
+
+.clients__grid {
+  position: relative;
+  z-index: 1;
+  margin-top: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 26px 44px;
+}
+
+.client {
+  width: 168px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  color: rgba(255, 255, 255, .78);
+  opacity: .82;
+  transition: opacity .3s ease, transform .3s ease, color .3s ease;
+}
+
+.client:hover { opacity: 1; transform: translateY(-6px); color: #fff; }
+
+.client__mark { width: 58px; height: 58px; }
+.client__mark svg { width: 100%; height: 100%; }
+
+.client__name { font-size: 13.5px; font-weight: 700; line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .clients__grid { gap: 22px; }
+  .client { width: 132px; }
+  .client__mark { width: 46px; height: 46px; }
+}

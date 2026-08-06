@@ -1,0 +1,51 @@
+:host { display: inline-block; }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  /* keeps the orange mark on the outer edge in both writing directions */
+  flex-direction: row-reverse;
+}
+
+.logo__mark {
+  width: 42px;
+  height: 47px;
+  flex: none;
+  transition: transform .35s ease;
+}
+
+.logo:hover .logo__mark { transform: translateY(-2px) rotate(-3deg); }
+
+.logo__words {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.12;
+}
+
+.logo__lean {
+  color: var(--orange);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.logo__name {
+  color: var(--ink);
+  font-size: 23px;
+  font-weight: 900;
+  letter-spacing: .3px;
+}
+
+:host-context([data-lang='en']) .logo__lean { font-size: 22px; letter-spacing: 1px; }
+:host-context([data-lang='en']) .logo__name { font-size: 20px; letter-spacing: .2px; }
+
+:host(.logo--light) .logo__name { color: #fff; }
+
+@media (max-width: 560px) {
+  .logo__mark { width: 34px; height: 38px; }
+  .logo__lean { font-size: 16px; }
+  .logo__name { font-size: 18px; }
+  :host-context([data-lang='en']) .logo__name { font-size: 16px; }
+}

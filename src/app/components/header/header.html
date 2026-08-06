@@ -1,0 +1,45 @@
+<header class="header" [class.header--scrolled]="scrolled()">
+  <div class="container header__inner">
+    <app-logo />
+
+    <nav class="nav" [class.nav--open]="menuOpen()" [attr.aria-label]="isArabic() ? 'القائمة الرئيسية' : 'Main navigation'">
+      @for (link of links; track link.path + (link.fragment ?? '')) {
+        <a
+          class="nav__link"
+          [routerLink]="link.path"
+          [fragment]="link.fragment"
+          (click)="closeMenu()">{{ t(link.label) }}</a>
+      } 
+
+      <button type="button" class="lang lang--mobile" (click)="switchLang()">
+        {{ isArabic() ? 'English' : 'العربية' }}
+      </button>
+
+      <a class="btn btn--primary nav__cta" routerLink="/contact" (click)="closeMenu()">
+        {{ t(cta) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </nav>
+
+    <div class="header__actions">
+      <button
+        type="button"
+        class="lang"
+        (click)="switchLang()"
+        [attr.aria-label]="isArabic() ? 'Switch language to English' : 'التبديل إلى العربية'">
+        {{ isArabic() ? 'English' : 'العربية' }}
+      </button>
+
+      <a class="btn btn--primary header__cta" routerLink="/contact">{{ t(cta) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+
+      <button
+        type="button"
+        class="burger"
+        [class.burger--open]="menuOpen()"
+        (click)="toggleMenu()"
+        [attr.aria-expanded]="menuOpen()"
+        [attr.aria-label]="isArabic() ? 'فتح القائمة' : 'Open menu'">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

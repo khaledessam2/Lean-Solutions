@@ -1,0 +1,63 @@
+<app-page-banner [heading]="copy.heading" />
+
+<section class="section prj">
+  <div class="container">
+    <div class="prj__head">
+      <div class="head-block" appReveal>
+        <span class="eyebrow">{{ t(copy.eyebrow) }}</span>
+        <h2 class="section-title">{{ t(copy.title) }}</h2>
+        <p class="section-lead">{{ t(copy.lead) }}</p>
+      </div>
+
+      <div class="tabs" appReveal role="tablist" [attr.aria-label]="t(copy.tabs)">
+        @for (f of filters; track f.key) {
+          <button
+            type="button"
+            class="tab"
+            [class.is-active]="activeFilter() === f.key"
+            role="tab"
+            [attr.aria-selected]="activeFilter() === f.key"
+            (click)="setFilter(f.key)">
+            {{ t(f.label) }}
+          </button>
+        }
+      </div>
+    </div>
+
+    <div class="prj__grid">
+      @for (project of filtered(); track project.slug; let i = $index) {
+        <article class="pcard" [appReveal]="(i % 3) * 100">
+          <div class="pcard__media">
+            <img [src]="project.image" [alt]="t(project.title)" loading="lazy" />
+          </div>
+          <div class="pcard__body">
+            <span class="pcard__tag">{{ t(project.tag) }}</span>
+            <h3 class="pcard__title">{{ t(project.title) }}</h3>
+            @if (t(project.text)) {
+              <p class="pcard__text">{{ t(project.text) }}</p>
+            }
+            <a class="btn btn--navy pcard__btn" [routerLink]="['/projects', project.slug]">{{ t(copy.view) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          </div>
+        </article>
+      } @empty {
+        <div class="empty" appReveal>
+          <span class="empty__icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 15a4 4 0 0 1 4-4h8l4 5h12a4 4 0 0 1 4 4v6" />
+              <path d="M6 15v20a4 4 0 0 0 4 4h13" />
+              <circle cx="33" cy="32" r="8" />
+              <path d="m39 38 4 4" />
+            </svg>
+          </span>
+          <h3 class="empty__title">{{ t(copy.emptyTitle) }}</h3>
+          <p class="empty__text">{{ t(copy.emptyText) }}</p>
+          <button type="button" class="btn btn--primary" (click)="setFilter('all')">
+            {{ t(copy.emptyAction) }}
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-contact />

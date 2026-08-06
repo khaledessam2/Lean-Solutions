@@ -1,0 +1,196 @@
+/* the live services listing sits on white, unlike the home page's dark section */
+.svc { background: #fff; }
+.svc .head-block { max-width: 780px; }
+
+/* the heading keeps the start of the row, the filters sit at the far end of it */
+.svc__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px 40px;
+}
+
+.svc__head .head-block { flex: 1 1 420px; }
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tab {
+  padding: 12px 24px;
+  border-radius: 6px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color .25s ease, color .25s ease;
+}
+
+.tab.is-active { background: var(--orange); color: #fff; }
+.tab:not(.is-active):hover { background: var(--accent-pale); }
+
+/* a full grid rather than the home page's carousel — the live page lists them all */
+.svc__grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+.scard {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 26px 24px 22px;
+  box-shadow: var(--shadow-card);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.scard:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+
+.scard__icon { display: block; width: 56px; height: 56px; margin-bottom: 20px; object-fit: contain; }
+
+.scard__title {
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.55;
+  min-height: 58px;
+}
+
+.scard__text {
+  margin-top: 12px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.85;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.scard__more {
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--orange);
+  font-weight: 700;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap .25s ease;
+}
+
+.scard__more:hover { gap: 14px; }
+
+/* ================= work steps ================= */
+.steps__grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  /* the cards column is the wider of the two — capped so the intro heading
+     still fits on one line, as it does in the design */
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.steps__media { margin: 34px 0 0; }
+.steps__media img { width: 100%; height: auto; border-radius: var(--radius); }
+
+/* The rail lives on a wrapper rather than as a border on the list: the list is
+   a scroll container, so anything inside it would scroll away with the cards. */
+.steps__rail { position: relative; }
+
+.steps__rail::before {
+  content: '';
+  position: absolute;
+  inset-inline-end: 0;
+  top: 50%;
+  translate: 0 -50%;
+  width: 6px;
+  height: 72%;
+  border-radius: 6px;
+  background: var(--accent);
+}
+
+.steps__list {
+  --wstep-h: 112px;
+  --wstep-gap: 24px;
+  /* breathing room so the card shadows are not clipped by the scroller */
+  --wstep-bleed: 20px;
+  /* the sliver of the fourth card that hints there is more below —
+     kept under the card's top padding so no text is cut in half */
+  --wstep-peek: 22px;
+
+  display: grid;
+  gap: var(--wstep-gap);
+  align-content: start;
+
+  /* Three cards plus a peek at the fourth — the rest arrive on scroll.
+     Only the top bleed counts here: the bottom one sits past the fold and
+     just keeps the last card's shadow off the edge once you reach the end. */
+  max-height: calc(
+    var(--wstep-bleed) + 3 * var(--wstep-h) + 3 * var(--wstep-gap) + var(--wstep-peek)
+  );
+  overflow-y: auto;
+
+  padding-inline-end: 22px;
+  padding-inline-start: var(--wstep-bleed);
+  margin-inline-start: calc(var(--wstep-bleed) * -1);
+  padding-block: var(--wstep-bleed);
+  margin-block: calc(var(--wstep-bleed) * -1);
+
+  /* the design shows no scrollbar; wheel, touch and keyboard still scroll */
+  scrollbar-width: none;
+}
+
+.steps__list::-webkit-scrollbar { width: 0; height: 0; }
+
+/* The cards are clipped by the scroller, so the reveal's 28px slide would push
+   the peeking card out of view entirely — and it could then never cross the
+   observer's threshold to reveal itself. Inside the list it fades only. */
+.steps__list .reveal { transform: none; }
+
+.wstep {
+  min-height: var(--wstep-h);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 24px;
+  background: #fff;
+  border-radius: var(--radius);
+  /* the top padding is what the peek shows, so keep the two in step */
+  padding: 22px 30px;
+  box-shadow: var(--shadow-card);
+}
+
+/* the number sits on the rail side, the copy on the opposite side */
+.wstep__body { grid-area: 1 / 1; }
+.wstep__no { grid-area: 1 / 2; }
+
+.wstep__no {
+  color: var(--ink);
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.wstep__body h3 { font-size: 18px; font-weight: 600; }
+
+.wstep__body p {
+  margin-top: 6px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+@media (max-width: 900px) {
+  .steps__grid { grid-template-columns: 1fr; gap: 32px; }
+}

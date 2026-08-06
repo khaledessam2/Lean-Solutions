@@ -1,0 +1,105 @@
+<section class="section section--soft contact" id="contact">
+  <div class="container contact__grid">
+    <div class="form-card" appReveal>
+      <span class="eyebrow">{{ t(copy.eyebrow) }}</span>
+      <h2 class="section-title">{{ t(copy.title) }}</h2>
+      <p class="form-card__lead">{{ t(copy.lead) }}</p>
+
+      <form class="form" [formGroup]="form" (ngSubmit)="submit()" novalidate>
+        <div class="field">
+          <label for="name">{{ t(copy.name) }} <span class="req">*</span></label>
+          <input id="name" type="text" formControlName="name" [placeholder]="t(copy.namePh)"
+                 [class.is-invalid]="invalid('name')" />
+          @if (invalid('name')) { <small class="err">{{ t(copy.nameErr) }}</small> }
+        </div>
+
+        <div class="field">
+          <label for="phone">{{ t(copy.phone) }} <span class="req">*</span></label>
+          <input id="phone" type="tel" formControlName="phone" [placeholder]="t(copy.phonePh)"
+                 [class.is-invalid]="invalid('phone')" />
+          @if (invalid('phone')) { <small class="err">{{ t(copy.phoneErr) }}</small> }
+        </div>
+
+        <div class="field">
+          <label for="email">{{ t(copy.email) }} <span class="req">*</span></label>
+          <input id="email" type="email" formControlName="email" [placeholder]="t(copy.emailPh)"
+                 [class.is-invalid]="invalid('email')" />
+          @if (invalid('email')) { <small class="err">{{ t(copy.emailErr) }}</small> }
+        </div>
+
+        <div class="field">
+          <label for="company">{{ t(copy.company) }} <span class="req">*</span></label>
+          <input id="company" type="text" formControlName="company" [placeholder]="t(copy.companyPh)"
+                 [class.is-invalid]="invalid('company')" />
+          @if (invalid('company')) { <small class="err">{{ t(copy.companyErr) }}</small> }
+        </div>
+
+        <div class="field field--full">
+          <label for="message">{{ t(copy.message) }}</label>
+          <textarea id="message" rows="4" formControlName="message" [placeholder]="t(copy.messagePh)"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--primary form__submit">{{ t(copy.submit) }}</button>
+
+        @if (sent()) {
+          <p class="form__ok">{{ t(copy.ok) }}</p>
+        }
+      </form>
+    </div>
+
+    <aside class="info-card" appReveal>
+      <h3 class="info-card__title">{{ t(copy.reach) }}</h3>
+
+      <ul class="info-list">
+        @for (item of info; track item.key) {
+          <li class="info">
+            <div class="info__text">
+              <span class="info__label">{{ t(item.label) }}</span>
+              @if (item.href) {
+                <a class="info__value" [href]="item.href" dir="ltr">{{ t(item.value) }}</a>
+              } @else {
+                <span class="info__value">{{ t(item.value) }}</span>
+              }
+            </div>
+
+            <span class="info__icon">
+              @switch (item.key) {
+                @case ('phone') {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 13v-1a8 8 0 0 1 16 0v1" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                    <rect x="2.5" y="13" width="5" height="7" rx="2" fill="currentColor" />
+                    <rect x="16.5" y="13" width="5" height="7" rx="2" fill="currentColor" />
+                  </svg>
+                }
+                @case ('pin') {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.8" />
+                    <circle cx="12" cy="10" r="2.6" fill="currentColor" />
+                  </svg>
+                }
+                @case ('mail') {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="2.5" y="5" width="19" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.8" />
+                    <path d="M4 8l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  </svg>
+                }
+                @default {
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8" />
+                    <path d="M12 7v5.5l3.5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                  </svg>
+                }
+              }
+            </span>
+          </li>
+        }
+      </ul>
+
+      <a class="social" href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6.6 9.4H3.9V20h2.7zM5.2 4a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4M20.1 20v-6c0-3.1-1.7-4.6-3.9-4.6-1.8 0-2.6 1-3 1.7V9.4H10.5V20h2.7v-5.8c0-1.4.6-2.3 1.9-2.3s1.7 1 1.7 2.3V20z" fill="currentColor" />
+        </svg>
+      </a>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about__top" appReveal>
+      <div class="head-block">
+        <span class="eyebrow">{{ t(copy.eyebrow) }}</span>
+        <h2 class="section-title">{{ t(copy.title) }}</h2>
+        <p class="section-lead">{{ t(copy.lead) }}</p>
+      </div>
+      <a class="btn btn--primary about__cta" routerLink="/about">{{ t(copy.cta) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+
+    <app-pillars class="about__grid" />
+  </div>
+</section>

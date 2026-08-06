@@ -1,0 +1,103 @@
+.detail { background: #fff; }
+
+.detail__cover { margin: 0 0 34px; }
+
+.detail__cover img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+.detail__title { font-size: clamp(24px, 2.8vw, 34px); font-weight: 600; }
+
+.detail__lead {
+  margin-top: 16px;
+  color: var(--body);
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.detail__features { margin-top: 34px; }
+.detail__features h3 { font-size: 22px; font-weight: 600; margin-bottom: 18px; }
+
+/* ---------- checklist (shared shape with the About page) ---------- */
+.checklist { display: grid; gap: 12px; margin-top: 22px; }
+
+.checklist li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 10px;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.checklist app-check-icon { margin-top: 4px; }
+
+/* ---------- project layout: write-up beside a spec panel ---------- */
+.detail__grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.specs {
+  background: var(--surface-soft);
+  border-radius: var(--radius);
+  padding: 26px;
+  border-inline-start: 4px solid var(--orange);
+}
+
+.specs__title { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+
+.specs__list { margin: 0; display: grid; gap: 14px; }
+
+.specs__row { display: grid; gap: 4px; }
+
+.specs__row dt { color: var(--ink); font-weight: 600; font-size: 15px; }
+.specs__row dd { margin: 0; color: var(--body); font-size: 15px; line-height: 1.7; }
+
+/* ---------- numbered process steps ---------- */
+.steps {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.step {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 28px 24px 24px;
+  box-shadow: var(--shadow-card);
+}
+
+.step__no {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.step__title { margin-top: 16px; font-size: 18px; font-weight: 600; }
+
+.step__text {
+  margin-top: 10px;
+  color: var(--body);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+@media (max-width: 900px) {
+  .detail__grid { grid-template-columns: 1fr; gap: 28px; }
+}

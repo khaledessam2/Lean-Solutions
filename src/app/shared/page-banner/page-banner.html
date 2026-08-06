@@ -1,0 +1,15 @@
+<section class="banner">
+  <div class="container banner__inner">
+    <h1 class="banner__title">{{ t(heading()) }}</h1>
+
+    <nav class="banner__crumbs" [attr.aria-label]="t(heading())">
+      <a routerLink="/">{{ t(home) }}</a>
+      @for (crumb of trail(); track crumb.link) {
+        <span aria-hidden="true">/</span>
+        <a [routerLink]="crumb.link">{{ t(crumb.label) }}</a>
+      }
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ t(heading()) }}</span>
+    </nav>
+  </div>
+</section>

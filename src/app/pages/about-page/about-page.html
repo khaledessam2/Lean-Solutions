@@ -1,0 +1,68 @@
+<!-- page banner: the same background art the hero uses, 300px tall as the live site -->
+<section class="banner">
+  <div class="container banner__inner">
+    <h1 class="banner__title">{{ t(banner.title) }}</h1>
+    <nav class="banner__crumbs" [attr.aria-label]="t(banner.title)">
+      <a routerLink="/">{{ t(banner.home) }}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ t(banner.title) }}</span>
+    </nav>
+  </div>
+</section>
+
+<section class="section intro">
+  <div class="container">
+    <div class="head-block" appReveal>
+      <span class="eyebrow">{{ t(intro.eyebrow) }}</span>
+      <h2 class="section-title">{{ t(intro.title) }}</h2>
+    </div>
+
+    <div class="intro__body" appReveal>
+      @for (p of intro.paragraphs; track $index) {
+        <p class="intro__lead">{{ t(p) }}</p>
+      }
+
+      <ul class="checklist">
+        @for (mode of intro.modes; track $index) {
+          <li><app-check-icon />{{ t(mode) }}</li>
+        }
+      </ul>
+
+      @for (block of blocks; track $index) {
+        <div class="intro__block">
+          <h3>{{ t(block.title) }}</h3>
+          <p>{{ t(block.text) }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft pillars-section">
+  <div class="container">
+    <app-pillars />
+  </div>
+</section>
+
+<section class="section why">
+  <div class="container why__grid">
+    <div class="why__copy">
+      <div class="head-block" appReveal>
+        <span class="eyebrow">{{ t(why.eyebrow) }}</span>
+        <h2 class="section-title why__title">{{ t(why.title) }}</h2>
+      </div>
+
+      <ul class="checklist" appReveal>
+        @for (point of why.points; track $index) {
+          <li><app-check-icon />{{ t(point) }}</li>
+        }
+      </ul>
+    </div>
+
+    <figure class="why__media" appReveal>
+      <img src="images/why-us.png" [alt]="t(why.imageAlt)" loading="lazy" />
+    </figure>
+  </div>
+</section>
+
+<app-contact />

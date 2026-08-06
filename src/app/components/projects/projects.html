@@ -1,0 +1,41 @@
+<section class="section projects" id="projects">
+  <div class="container">
+    <div class="projects__top" appReveal>
+      <div class="head-block">
+        <span class="eyebrow">{{ t(copy.eyebrow) }}</span>
+        <h2 class="section-title">{{ t(copy.title) }}</h2>
+        <p class="section-lead">{{ t(copy.lead) }}</p>
+      </div>
+      <a class="btn btn--primary projects__cta" routerLink="/projects">{{ t(copy.more) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+
+    <div class="viewport">
+      <div class="track" [style.transform]="shift()">
+        @for (project of projects; track project.slug) {
+          <div class="slot">
+            <article class="pcard">
+              <div class="pcard__media">
+                <img [src]="project.image" [alt]="t(project.title)" loading="lazy" />
+              </div>
+              <div class="pcard__body">
+                <span class="pcard__tag">{{ t(project.tag) }}</span>
+                <h3 class="pcard__title">{{ t(project.title) }}</h3>
+                <p class="pcard__text">{{ t(project.text) }}</p>
+                <a class="btn btn--navy pcard__btn" [routerLink]="['/projects', project.slug]">{{ t(copy.view) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+              </div>
+            </article>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="projects__arrows">
+      <button type="button" class="nav-btn" (click)="step(-1)" [disabled]="index() === 0" [attr.aria-label]="t(copy.prev)">
+        <svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="nav-btn" (click)="step(1)" [disabled]="index() >= maxIndex()" [attr.aria-label]="t(copy.next)">
+        <svg viewBox="0 0 12 10" aria-hidden="true"><path d="M11 5L1 5M11 5L7 1M11 5L7 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>

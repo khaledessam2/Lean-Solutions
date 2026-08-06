@@ -1,0 +1,98 @@
+/* ================= page banner ================= */
+.banner {
+  position: relative;
+  display: grid;
+  place-items: center;
+  /* the live site: min-height 300px desktop, 210px on mobile */
+  min-height: 300px;
+  background: var(--dark-b) url('/images/hero-bg.jpg') center center / cover no-repeat;
+  overflow: hidden;
+}
+
+.banner__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 14px;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.banner__title {
+  color: #fff;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.banner__crumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, .7);
+  font-size: 15px;
+}
+
+.banner__crumbs a { transition: color .25s ease; }
+.banner__crumbs a:hover { color: #fff; }
+
+/* ================= intro ================= */
+.intro { background: #fff; }
+
+.intro__body { margin-top: 26px; display: grid; gap: 18px; max-width: 940px; }
+
+.intro__lead { color: var(--body); font-size: 17px; line-height: 1.9; }
+
+.intro__block { margin-top: 10px; display: grid; gap: 10px; }
+.intro__block h3 { font-size: 20px; font-weight: 600; }
+.intro__block p { color: var(--body); font-size: 17px; line-height: 1.9; }
+
+/* ================= checklist ================= */
+.checklist { display: grid; gap: 12px; margin: 6px 0; }
+
+.checklist li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: 10px;
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+/* nudge the badge down onto the first line's optical centre */
+.checklist app-check-icon { margin-top: 4px; }
+
+/* ================= vision / mission / values ================= */
+.pillars-section { padding-top: 0; background: #fff; }
+
+/* ================= why choose us ================= */
+.why { background: #fff; }
+
+.why__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.why__title { font-size: clamp(24px, 2.6vw, 34px); }
+
+.why__copy .checklist { margin-top: 26px; }
+
+.why__media { margin: 0; }
+.why__media img { width: 100%; height: auto; }
+
+@media (max-width: 900px) {
+  .banner { min-height: 210px; }
+  .banner__title { font-size: 30px; }
+  .why__grid { grid-template-columns: 1fr; gap: 32px; }
+  .why__media { order: -1; }
+}
+
+@media (max-width: 767px) {
+  .banner__title { font-size: 25px; }
+  .intro__lead,
+  .intro__block p { font-size: 15.5px; }
+}

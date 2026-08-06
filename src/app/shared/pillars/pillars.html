@@ -1,0 +1,25 @@
+<div class="pillars">
+  <div class="pillars__cards">
+    @for (card of cards; track card.key; let i = $index) {
+      <article class="acard" [appReveal]="i * 120">
+        <div class="acard__head">
+          <h3>{{ t(card.title) }}</h3>
+
+          <img
+            class="acard__icon"
+            [src]="card.icon"
+            alt=""
+            width="56"
+            height="56"
+            loading="lazy"
+            decoding="async" />
+        </div>
+        <p>{{ t(card.text) }}</p>
+      </article>
+    }
+  </div>
+
+  <figure class="pillars__media" appReveal>
+    <img src="images/Frame-1686557484.jpg" [alt]="t(imageAlt)" loading="lazy" />
+  </figure>
+</div>

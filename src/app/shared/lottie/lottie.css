@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.lottie__canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* lottie-web sizes its own svg to the container */
+.lottie__canvas svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
