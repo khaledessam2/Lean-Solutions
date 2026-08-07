@@ -72,7 +72,7 @@ html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
 
 body {
   margin: 0;
-  font-family: 'Tajawal', 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+  font-family: 'Readex Pro', 'Outfit', 'Segoe UI', Tahoma, sans-serif;
   color: var(--body);
   background: var(--surface);
   /* live site body metrics: 400 / 16px / 1.65 */
@@ -83,7 +83,7 @@ body {
 }
 
 html[data-lang='en'] body {
-  font-family: 'Poppins', 'Tajawal', 'Segoe UI', sans-serif;
+  font-family: 'Outfit', 'Readex Pro', 'Segoe UI', sans-serif;
 }
 
 /* live site heading metrics: weight 600, h1 1.4 · h2/h3 1.3 · h4 1.2 */

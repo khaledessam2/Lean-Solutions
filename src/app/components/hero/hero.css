@@ -111,7 +111,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 22px;
+  gap: 34px;
 }
 
 /* borderless — a soft disc appears on hover instead of a permanent outline */
@@ -125,7 +125,7 @@
   transition: color .25s ease, background-color .25s ease;
 }
 
-.hero__arrow svg { width: 20px; height: 17px; }
+.hero__arrow svg { width: 12px; height: 21px; }
 
 /* glyphs are drawn for RTL; flex order flips the buttons in English, so mirror
    them to keep the left button pointing left and the right one pointing right.

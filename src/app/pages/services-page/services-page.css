@@ -178,7 +178,8 @@
 .wstep__no {
   color: var(--ink);
   font-size: 46px;
-  font-weight: 800;
+  /* Readex Pro tops out at 700 — asking for 800 would render a smeared faux-bold */
+  font-weight: 700;
   line-height: 1;
 }
 

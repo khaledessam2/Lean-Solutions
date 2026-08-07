@@ -1,20 +1,8 @@
-<a class="logo" routerLink="/" aria-label="Lean Business Solutions">
-  <span class="logo__words">
-    @if (isArabic()) {
-      <span class="logo__lean">لين</span>
-      <span class="logo__name">بيزنس سوليشنز</span>
-    } @else {
-      <span class="logo__lean">lean</span>
-      <span class="logo__name">business solutions</span>
-    }
-  </span>
-
-  <svg class="logo__mark" viewBox="0 0 66 74" aria-hidden="true">
-    <g fill="#ea6323">
-      <path d="M30 2h24l-8 18H22z" />
-      <path d="M18 24h30l-8 18H10z" />
-      <path d="M6 46h30l-8 18H-2z" />
-      <path d="M24 54h22a8 8 0 0 1 8 8v10H16z" opacity=".92" />
-    </g>
-  </svg>
+<a class="logo" routerLink="/" [attr.aria-label]="isArabic() ? 'لين بيزنس سوليشنز' : 'Lean Business Solutions'">
+  <img
+    class="logo__lockup"
+    [src]="lockup().src"
+    [width]="lockup().width"
+    [height]="lockup().height"
+    alt="" />
 </a>
