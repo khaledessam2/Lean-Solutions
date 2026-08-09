@@ -6,6 +6,80 @@ import { ProjectDetail, ServiceDetail } from './catalog';
  */
 
 export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
+  'lean-academy-lms': {
+    title: { ar: 'نظام لين أكاديمي (Lean Academy LMS)', en: 'Lean Academy LMS' },
+    offerTitle: { ar: 'أنماط التدريب المدعومة', en: 'Supported training modes' },
+    offers: [
+      { ar: 'التدريب الذاتي (Self-paced): تعلم فردي مخصص لكل متدرب.', en: 'Self-paced training: individual learning tailored to each trainee.' },
+      { ar: 'التدريب الافتراضي المباشر (Live Virtual): جلسات تفاعلية عبر الإنترنت.', en: 'Live virtual training: interactive sessions online.' },
+      { ar: 'التدريب الحضوري (In-person): إدارة فعّالة للدورات التقليدية.', en: 'In-person training: effective management of traditional courses.' },
+    ],
+    featuresTitle: { ar: 'لماذا لين أكاديمي؟', en: 'Why Lean Academy?' },
+    features: [
+      { ar: 'منصة أكاديمية ذكية ومرنة.', en: 'A smart and flexible academic platform.' },
+      { ar: 'دعم متكامل لطرق التعليم المختلفة.', en: 'Full support for the different modes of learning.' },
+      { ar: 'استخدام الذكاء الاصطناعي في التخصيص والتفاعل.', en: 'Artificial intelligence for personalisation and engagement.' },
+      { ar: 'تقارير تحليلية دقيقة لقياس الأداء.', en: 'Precise analytical reports for measuring performance.' },
+      { ar: 'شهادات رقمية آمنة وموثوقة.', en: 'Secure and trusted digital certificates.' },
+      { ar: 'تجربة استخدام سلسة على جميع الأجهزة.', en: 'A seamless experience across every device.' },
+    ],
+    processTitle: { ar: 'المزايا والوظائف الرئيسية', en: 'Key capabilities' },
+    /* deliberately blank — this block lists capabilities, not process steps, so it
+       carries no lead line and the template skips the heading */
+    processLead: { ar: '', en: '' },
+    steps: [
+      {
+        no: '01',
+        title: { ar: 'إدارة متكاملة للدورات التدريبية', en: 'Integrated course management' },
+        text: { ar: 'إنشاء وإدارة دورات (ذاتي – مباشر – حضوري) مع آلية ترشيح وموافقة إلكترونية.', en: 'Create and manage self-paced, live and in-person courses with electronic nomination and approval.' },
+      },
+      {
+        no: '02',
+        title: { ar: 'فصول افتراضية تفاعلية', en: 'Interactive virtual classrooms' },
+        text: { ar: 'جلسات بث مباشر مع مشاركة الشاشة، سبورة بيضاء، محادثات فورية، وإرسال ملفات.', en: 'Live sessions with screen sharing, a whiteboard, instant messaging and file transfer.' },
+      },
+      {
+        no: '03',
+        title: { ar: 'لوحة تحكم مخصصة للمتدرب', en: 'Dedicated trainee dashboard' },
+        text: { ar: 'متابعة التقدم، إدارة الدورات المسجلة، الحصول على تقارير، وطباعة الشهادات.', en: 'Track progress, manage enrolled courses, pull reports and print certificates.' },
+      },
+      {
+        no: '04',
+        title: { ar: 'اختبارات إلكترونية ذكية', en: 'Smart online assessments' },
+        text: { ar: 'تصميم اختبارات متنوعة مع إرسال النتائج تلقائيًا عبر البريد أو الرسائل النصية.', en: 'Build varied assessments with results sent automatically by email or SMS.' },
+      },
+      {
+        no: '05',
+        title: { ar: 'شهادات إلكترونية موثوقة', en: 'Verified digital certificates' },
+        text: { ar: 'شهادات رقمية مشفرة ومعتمدة يمكن طباعتها أو التحقق منها إلكترونيًا.', en: 'Encrypted, accredited digital certificates that can be printed or verified online.' },
+      },
+      {
+        no: '06',
+        title: { ar: 'تقييم التدريب والاستبيانات', en: 'Training evaluation and surveys' },
+        text: { ar: 'نماذج تقييم تلقائية لقياس رضا المتدربين والمدربين وتحسين جودة البرامج.', en: 'Automated evaluation forms that measure trainee and trainer satisfaction and improve programme quality.' },
+      },
+      {
+        no: '07',
+        title: { ar: 'لوحة تحكم للإدارة', en: 'Administration dashboard' },
+        text: { ar: 'إدارة كاملة للنظام، الصلاحيات، البيانات، وتقارير مفصلة لجميع العمليات.', en: 'Full control over the system, permissions and data, with detailed reporting on every operation.' },
+      },
+      {
+        no: '08',
+        title: { ar: 'إدارة المراكز التدريبية والمعاهد', en: 'Training centre and institute management' },
+        text: { ar: 'متابعة الأداء، طرح الدورات، وإدارة التواصل مع المتدربين والمدربين.', en: 'Monitor performance, publish courses and manage communication with trainees and trainers.' },
+      },
+      {
+        no: '09',
+        title: { ar: 'واجهة مستخدم متجاوبة', en: 'Responsive user interface' },
+        text: { ar: 'تصميم بسيط وحديث يعمل بسلاسة على الحاسوب والهواتف الذكية.', en: 'A simple, modern design that works smoothly on desktop and smartphones.' },
+      },
+      {
+        no: '10',
+        title: { ar: 'إدارة شاملة للمستخدمين', en: 'Comprehensive user management' },
+        text: { ar: 'إدارة حسابات المتدربين، المدربين، والمشرفين مع مرونة كاملة في الصلاحيات.', en: 'Manage trainee, trainer and supervisor accounts with full flexibility over permissions.' },
+      },
+    ],
+  },
   'ui-ux-design': {
     title: { ar: 'تصميم واجهات وتجربة المستخدم (UI/UX)', en: 'User Interface and Experience (UI/UX) Design' },
     featuresTitle: { ar: 'المميزات الرئيسية', en: 'Main features' },
@@ -716,6 +790,68 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'التعليم الإلكتروني / التدريب الأمني', en: 'E-Learning / Security Training' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'خبراء تعليم إلكتروني، مطورو برمجيات (ويب + موبايل)، مصممو محتوى تدريبي، مختصو محاكاة وتقييم', en: 'E-learning experts, software developers (web + mobile), training content designers, simulation and evaluation specialists' } },
     ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'مشروع نُفّذ لصالح الأمن العام لبناء منصة تدريبية رقمية تجمع بين المحتوى النظري والتدريب الميداني الافتراضي. تتيح المنصة تقديم الدورات المهنية وإجراءات السلامة عبر وسائط متعددة تشمل الفيديو والعروض الرقمية والمحاكاة التفاعلية، مع تتبع لحظي لأداء المتدربين.', en: 'A project delivered for Public Security to build a digital training platform that combines theoretical content with virtual field training. The platform delivers professional courses and safety procedures through multiple media — video, digital presentations and interactive simulation — with real-time tracking of trainee performance.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'رفع كفاءة كوادر الأمن العام عبر تجربة تعلم مرنة وقابلة للقياس، تختصر زمن التدريب وتتيح تكرار السيناريوهات الميدانية في بيئة آمنة.', en: 'To raise the efficiency of Public Security personnel through a flexible, measurable learning experience that shortens training time and allows field scenarios to be repeated in a safe environment.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للمنصة', en: 'Core platform capabilities' },
+        bullets: [
+          { ar: 'محتوى تدريبي متنوع: فيديوهات، عروض رقمية، ومحاكاة تفاعلية للمواقف المهنية.', en: 'Diverse training content: videos, digital presentations and interactive simulations of professional situations.' },
+          { ar: 'تدريب ميداني افتراضي: إعادة بناء سيناريوهات العمل باستخدام أحدث تقنيات المحاكاة.', en: 'Virtual field training: work scenarios rebuilt using the latest simulation technologies.' },
+          { ar: 'تتبع لحظي للأداء: متابعة الحضور والتقدم مع اختبارات تقييمية بعد كل وحدة.', en: 'Real-time performance tracking: attendance and progress monitored, with an assessment after each unit.' },
+          { ar: 'مرونة الوصول: استخدام كامل عبر الويب والأجهزة المحمولة في أي وقت ومكان.', en: 'Flexible access: full use across web and mobile devices, anytime and anywhere.' },
+          { ar: 'تقارير قابلة للقياس: مؤشرات أداء تدعم قرارات التطوير التدريبي.', en: 'Measurable reporting: performance indicators that inform training development decisions.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'تصميم المحتوى التدريبي بالتعاون مع مختصي المحاكاة والتقييم.', en: 'Training content designed together with simulation and assessment specialists.' },
+          { ar: 'دعم فني وتشغيلي طوال فترة التنفيذ البالغة أربعة أشهر.', en: 'Technical and operational support throughout the four-month delivery period.' },
+        ],
+      },
+    ],
+  },
+  'e-learning-for-a-government-agency': {
+    title: { ar: 'التعليم الإلكتروني في جهة حكومية', en: 'E-learning for a government agency' },
+    image: 'images/WHISK_4.jpg',
+    aboutTitle: { ar: 'حول المشروع', en: 'About the project' },
+    aboutText: { ar: 'مشروع التعليم الإلكتروني في جهة حكومية هو مبادرة استراتيجية تهدف إلى رفع كفاءة منتسبي الجهة عبر منصة تعلم رقمية متقدمة توفّر وصولًا سريعًا للمحتوى التدريبي وتدعم أساليب التعلم المرنة والحديثة. يركّز المشروع على تقديم تجربة تدريبية مميزة تجمع بين الجودة والفاعلية، بما يسهم في تحسين الأداء المؤسسي وتطوير القدرات الإدارية والتخصصية.', en: 'A project in a government agency is a strategic initiative aimed at enhancing the efficiency of government employees through an advanced digital learning platform that provides quick access to training content and supports flexible and modern learning methods. The project focuses on providing a distinguished training experience that combines quality and effectiveness, contributing to improving institutional performance and developing administrative and specialized capabilities.' },
+    features: [
+      { ar: 'منصة متكاملة: توفّر محتوى تدريبيًا متنوعًا (فيديوهات، ملفات، وعروض تفاعلية).', en: 'Integrated platform: Provides diverse training content (videos, files, and interactive presentations).' },
+      { ar: 'متابعة دقيقة: إدارة حضور المتدربين وتقييم أدائهم عبر اختبارات دورية.', en: "Close monitoring: managing trainees' attendance and evaluating their performance through periodic tests." },
+      { ar: 'مرونة في الوصول: دعم كامل للاستخدام عبر الويب والهواتف المحمولة.', en: 'Accessibility flexibility: Full support for web and mobile use.' },
+    ],
+    infoTitle: { ar: 'معلومات المشروع', en: 'Project information' },
+    info: [
+      { label: { ar: 'العميل:', en: 'Client:' }, value: { ar: 'جهة حكومية', en: 'Government entity' } },
+      { label: { ar: 'الخدمة:', en: 'Service:' }, value: { ar: 'تطوير منصة تعليم إلكتروني متكاملة للتدريب', en: 'Development of an integrated e-learning platform for training' } },
+      { label: { ar: 'مدة التنفيذ:', en: 'Implementation period:' }, value: { ar: '12 شهرًا', en: '12 months' } },
+      { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'التعليم الإلكتروني / تطوير الموارد البشرية', en: 'E-Learning / Human Resources Development' } },
+      { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'خبراء تعليم إلكتروني، مصممو محتوى رقمي، مطورون (ويب + موبايل)، محللو بيانات وتقارير', en: 'E-learning experts, digital content designers, (web + mobile) developers, data and reporting analysts' } },
+    ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل للمشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'يهدف المشروع إلى بناء منصة تعليم إلكتروني متقدمة تخدم منتسبي الجهة الحكومية عبر تقديم تجربة تدريبية تفاعلية وفعّالة. صُممت المنصة لتكون أداة استراتيجية لتطوير مهارات الكوادر الإدارية والتخصصية، مع ضمان مرونة الوصول ودقة متابعة الأداء.', en: 'The project aims to build an advanced e-learning platform that serves government employees by providing an interactive and effective training experience. The platform is designed to be a strategic tool for developing the skills of administrative and specialized personnel, while ensuring flexible access and accurate performance monitoring.' },
+      },
+      {
+        title: { ar: 'أبرز خصائص المنصة', en: 'Key features of the platform' },
+        bullets: [
+          { ar: 'محتوى تدريبي رقمي متكامل: يشمل فيديوهات تعليمية، ملفات نصية، وعروضًا تفاعلية تغطي مجالات متعددة.', en: 'Integrated digital training content: Includes educational videos, text files, and interactive presentations covering multiple fields.' },
+          { ar: 'إدارة التدريب: متابعة حضور المتدربين، رصد الدرجات، وتوفير مسار تدريبي واضح لكل مستخدم.', en: 'Training management: monitoring trainee attendance, recording grades, and providing a clear training path for each user.' },
+          { ar: 'اختبارات إلكترونية: تقييم مستمر لمستوى المتدربين عبر اختبارات دورية تساعد على قياس التقدم.', en: "Online tests: Continuous assessment of trainees' level through periodic tests that help measure progress." },
+          { ar: 'مرونة كاملة: الوصول إلى المنصة عبر الويب أو الأجهزة المحمولة لضمان التعلم في أي وقت ومن أي مكان.', en: 'Complete flexibility: Access the platform via the web or mobile devices to ensure learning anytime, anywhere.' },
+          { ar: 'تقارير تفصيلية: لوحات تحكم إدارية تعرض بيانات دقيقة عن تقدم المتدربين، معدلات الإكمال، ونقاط التحسين.', en: "Detailed reports: Management dashboards display accurate data on trainees' progress, completion rates, and improvement points." },
+        ],
+      },
+    ],
   },
   'the-school-library-management-system': {
     title: { ar: 'نظام إدارة المكتبات المدرسية', en: 'The School Library Management System' },
@@ -734,6 +870,35 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'مدة التنفيذ:', en: 'Implementation period:' }, value: { ar: '6 شهور', en: '6 months' } },
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'أنظمة تعليمية / حلول إدارة مكتبات', en: 'Educational Systems / Library Management Solutions' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – محللو نظم، مطورو أنظمة، خبراء تكامل تعليم إلكتروني، مصممو UX/UI، إدارة مشروع', en: 'Lean Business Solutions Team – Systems Analysts, Systems Developers, E-Learning Integrators, UX/UI Designers, Project Managemen' } },
+    ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'تم تصميم نظام إدارة المكتبات المدرسية لتلبية احتياجات المدارس في تنظيم عمليات المكتبة وتحويلها إلى تجربة رقمية سلسة. يتيح النظام فهرسة الكتب بشكل مفصل حسب المؤلف، الفئة، والموقع داخل المكتبة، مع إمكانية البحث والاستعارة إلكترونيًا للطلاب والمعلمين.', en: "The School Library Management System was designed to meet schools' needs in organising library operations and turning them into a seamless digital experience. It catalogues books in detail by author, category and location within the library, with electronic search and borrowing for students and teachers." },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'إيجاد نظام ذكي يساعد المدرسة على تتبع الكتب، تبسيط عمليات الاستعارة، وضمان إدارة دقيقة للمخزون، مع ربط كامل بأنظمة الطلاب وأولياء الأمور.', en: 'To create a smart system that helps the school track books, simplify borrowing and keep inventory management accurate, with full integration into the student and parent systems.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للنظام', en: 'Core system capabilities' },
+        bullets: [
+          { ar: 'فهرسة ذكية للكتب: تسجيل وتصنيف الكتب حسب الفئة، المؤلف، والمكان داخل المكتبة.', en: 'Smart cataloguing: recording and classifying books by category, author and location within the library.' },
+          { ar: 'استعارة إلكترونية: للطلاب والمعلمين مع متابعة المواعيد النهائية للإرجاع.', en: 'Electronic borrowing: for students and teachers, with return deadlines tracked.' },
+          { ar: 'تكامل مع شؤون الطلبة: للتعرف على المستعيرين وتحديد الكتب غير المسترجعة.', en: 'Student affairs integration: identifying borrowers and flagging books that have not been returned.' },
+          { ar: 'إشعارات لأولياء الأمور: عبر تطبيق ولي الأمر لمتابعة استعارات أبنائهم.', en: "Parent notifications: through the parent app, so families can follow their children's borrowing." },
+          { ar: 'جرد دوري: لمراقبة حالة الكتب وتحديث المخزون بشكل مستمر.', en: 'Periodic inventory: monitoring the condition of books and keeping stock continuously up to date.' },
+          { ar: 'تقارير شاملة: عن الكتب المتاحة، المستعارة، المتأخرة، وحالة المكتبة العامة.', en: 'Comprehensive reports: on available, borrowed and overdue books, and the overall state of the library.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'تتبع أماكن الكتب داخل المكتبة لتسهيل الوصول إليها بسرعة.', en: 'Tracking where books sit inside the library so they can be found quickly.' },
+          { ar: 'إدارة بيانات المؤلفين والفئات الخاصة بالكتب.', en: 'Managing author records and the categories books belong to.' },
+          { ar: 'رصد عمليات السحب والإرجاع وربطها بالطلاب لضمان متابعة دقيقة وشاملة.', en: 'Logging checkouts and returns and linking them to students for accurate, end-to-end tracking.' },
+        ],
+      },
     ],
   },
   'the-corporate-website-development': {
@@ -754,6 +919,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'تطوير مواقع / الهوية الرقمية', en: 'Website Development / Digital Identity' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – تصميم UX/UI، تطوير الويب، تحسين SEO، إدارة المشروع', en: 'Lean Business Solutions Team – UX/UI Design, Web Development, SEO Optimization, Project Management' } },
     ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'مشروع تطوير مواقع الشركات يقدّم مواقع إلكترونية احترافية تُبنى حول هوية كل علامة تجارية. يغطي العمل تصميم تجربة المستخدم، تطوير الواجهات، وتهيئة المحتوى لمحركات البحث، بما يخدم قطاعات متعددة باختلاف احتياجاتها.', en: 'The corporate website development project delivers professional websites built around each brand identity. The work covers user-experience design, front-end development and search-engine optimisation, serving multiple sectors with differing needs.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'تعزيز الهوية الرقمية للشركات وزيادة حضورها على الإنترنت عبر مواقع تعكس قيم العلامة التجارية وتحوّل الزائر إلى عميل.', en: "To strengthen companies' digital identity and grow their online presence through sites that reflect the brand's values and turn visitors into customers." },
+      },
+      {
+        title: { ar: 'المزايا الأساسية', en: 'Core capabilities' },
+        bullets: [
+          { ar: 'تصميم متجاوب: واجهات تعمل بسلاسة على الحاسوب والجهاز اللوحي والهاتف.', en: 'Responsive design: interfaces that work smoothly on desktop, tablet and phone.' },
+          { ar: 'تحسين محركات البحث (SEO): بنية تقنية ومحتوى مهيّأ لرفع الترتيب في نتائج البحث.', en: 'Search-engine optimisation (SEO): technical structure and content tuned to rank higher in search results.' },
+          { ar: 'تصميم عصري: اتباع أحدث اتجاهات تجربة وواجهة المستخدم (UX/UI).', en: 'Modern design: following the latest UX/UI trends.' },
+          { ar: 'سرعة تحميل: تحسين الأصول والأكواد لتقليل زمن الاستجابة.', en: 'Fast loading: assets and code optimised to cut response time.' },
+          { ar: 'إدارة محتوى مرنة: تمكين الفريق من تحديث الموقع دون خبرة تقنية.', en: 'Flexible content management: the team can update the site without technical expertise.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'ربط الموقع بأدوات التحليلات لقياس سلوك الزوار.', en: 'The site is wired to analytics tools so visitor behaviour can be measured.' },
+          { ar: 'تنفيذ خلال ثلاثة أشهر يشمل التصميم والتطوير والإطلاق.', en: 'Delivered in three months, covering design, development and launch.' },
+        ],
+      },
+    ],
   },
   'masroufi-app': {
     title: { ar: 'مشروع تقنى – تطبيق مصروفي', en: 'Masroufi App' },
@@ -772,6 +964,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'مدة التنفيذ:', en: 'Implementation period:' }, value: { ar: '12 شهرًا', en: '12 months' } },
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'التطبيقات المالية (FinTech)', en: 'Financial Applications ( FinTech' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – تطوير، تصميم واجهة وتجربة مستخدم، إدارة المشروع', en: 'Lean Business Solutions Team – Development, UI/UX Design, Project Management' } },
+    ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: '«مصروفي» تطبيق مالي يمكّن الآباء من إصدار بطاقات بنكية مسبقة الدفع لأبنائهم وإدارة مصروفهم اليومي بالكامل من الهاتف. يستبدل التطبيق التعامل النقدي بحل رقمي آمن يمنح ولي الأمر رؤية كاملة على الإنفاق ويمنح الابن استقلالية منضبطة.', en: '"Masroufi" is a financial app that lets parents issue prepaid bank cards for their children and manage daily allowances entirely from their phone. It replaces cash with a secure digital alternative that gives the parent full visibility of spending and gives the child controlled independence.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'توفير أداة آمنة وغير نقدية لإدارة مصروف الأبناء، وبناء وعي مالي مبكر لديهم عبر التعامل المباشر مع الميزانية والادخار.', en: "To provide a safe, cashless way of managing children's allowances, and to build early financial awareness through hands-on budgeting and saving." },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للتطبيق', en: 'Core app capabilities' },
+        bullets: [
+          { ar: 'بطاقات مسبقة الدفع: إصدار بطاقة لكل ابن مرتبطة مباشرة بحساب ولي الأمر.', en: "Prepaid cards: a card for each child, linked directly to the parent's account." },
+          { ar: 'ميزانيات يومية: تحديد سقف للإنفاق وضبطه في أي وقت.', en: 'Daily budgets: set a spending ceiling and adjust it at any time.' },
+          { ar: 'إشعارات فورية: تنبيه ولي الأمر بكل عملية شراء لحظة حدوثها.', en: 'Instant notifications: the parent is alerted to every purchase as it happens.' },
+          { ar: 'تتبع المصروفات: تصنيف العمليات لعرض أين يذهب المصروف.', en: 'Expense tracking: transactions are categorised to show where the money goes.' },
+          { ar: 'أدوات ادخار: تشجيع الطفل على تخصيص جزء من مصروفه لهدف محدد.', en: 'Saving tools: encouraging the child to set aside part of the allowance for a goal.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'إيقاف البطاقة أو تجميدها فوريًا من التطبيق عند الحاجة.', en: 'Cards can be frozen or stopped instantly from the app when needed.' },
+          { ar: 'تنفيذ على مدى اثني عشر شهرًا شمل التطوير والتكامل البنكي.', en: 'Delivered over twelve months, covering development and banking integration.' },
+        ],
+      },
     ],
   },
   'an-integrated-training-platform-for-a-government-agency': {
@@ -792,6 +1011,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'التعليم الإلكتروني / تدريب وتطوير الموارد البشرية', en: 'E-Learning / Human Resources Training and Development' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'خبراء التعليم الإلكتروني، مصممو Motion Graphics، مطورو أنظمة (ويب + موبايل)، متخصصو لغة إشارة، مطورو محتوى تدريبي', en: 'E-learning experts, Motion Graphics designers, (web + mobile) developers, sign language specialists, training content developers' } },
     ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'منصة تدريبية صُممت لجهة حكومية لتمكين الأشخاص ذوي الإعاقة وأسرهم من الوصول إلى محتوى تدريبي شامل. تضم المنصة 15 دورة مبنية على الرسوم المتحركة والوسائط المتعددة، مع دعم لغة الإشارة والترجمة النصية في كل درس لضمان شمولية التجربة.', en: 'A training platform designed for a government agency to give people with disabilities and their families access to comprehensive training content. It holds 15 courses built on animation and multimedia, with sign-language support and subtitles in every lesson so the experience stays inclusive.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'إزالة حواجز الوصول إلى التدريب، وتقديم تجربة تعلم تفاعلية يستطيع كل مستخدم متابعتها بالطريقة التي تناسبه.', en: 'To remove the barriers to accessing training, and to offer an interactive learning experience each user can follow in the way that suits them.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للمنصة', en: 'Core platform capabilities' },
+        bullets: [
+          { ar: '15 دورة تدريبية: تغطي المهارات الأساسية والمتقدمة.', en: '15 training courses: covering both basic and advanced skills.' },
+          { ar: 'دعم لغة الإشارة: ترجمة مصاحبة لكل درس.', en: 'Sign-language support: an accompanying interpretation for every lesson.' },
+          { ar: 'ترجمة نصية (CC): نصوص متزامنة في جميع المواد المرئية.', en: 'Closed captions (CC): synchronised text across all visual material.' },
+          { ar: 'محتوى بالرسوم المتحركة: عرض المعلومة بأسلوب بصري يزيد المشاركة.', en: 'Animated content: information presented visually to increase engagement.' },
+          { ar: 'تجربة موجهة للأسرة: مسارات تناسب المتدرب وذويه معًا.', en: 'A family-oriented experience: paths that suit both the trainee and their family.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'إنتاج المحتوى بمشاركة متخصصي لغة الإشارة ومصممي Motion Graphics.', en: 'Content produced with sign-language specialists and motion-graphics designers.' },
+          { ar: 'إتاحة المنصة عبر الويب والهاتف المحمول.', en: 'The platform is available on both web and mobile.' },
+        ],
+      },
+    ],
   },
   'the-e-wallet-system': {
     title: { ar: 'نظام المحفظة الإلكترونية', en: 'The e-Wallet System' },
@@ -810,6 +1056,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'مدة التنفيذ:', en: 'Implementation period:' }, value: { ar: '7 أشهر', en: '7 months' } },
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'أنظمة مالية مدرسية / حلول الدفع الإلكتروني', en: 'School Financial Systems / Electronic Payment Solutions' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – محللو نظم، مطورو أنظمة مالية، خبراء تكامل POS، مصممو UX/UI، إدارة مشروع', en: 'Lean Business Solutions Team – Systems Analysts, Financial Systems Developers, POS Integration Experts, UX/UI Designers, Project Management' } },
+    ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'نظام المحفظة الإلكترونية يؤتمت عمليات الكانتين المدرسي بالكامل: يشحن ولي الأمر رصيد ابنه، ويدفع الطالب إلكترونيًا عند نقطة البيع، بينما تدير المدرسة المخزون والمبيعات والتقارير من لوحة واحدة.', en: 'The e-Wallet System automates school canteen operations end to end: the parent tops up their child’s balance, the student pays electronically at the point of sale, and the school manages inventory, sales and reporting from a single dashboard.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'إنهاء التعامل النقدي داخل المدرسة، وإعطاء ولي الأمر تحكمًا في ما يشتريه ابنه، وتزويد الإدارة ببيانات دقيقة عن الحركة المالية.', en: 'To end cash handling inside the school, give parents control over what their child buys, and provide the administration with accurate data on financial activity.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للنظام', en: 'Core system capabilities' },
+        bullets: [
+          { ar: 'محافظ إلكترونية للطلاب: شحن الرصيد ومتابعته لحظيًا.', en: 'Student e-wallets: top up and monitor balances in real time.' },
+          { ar: 'دفع عبر نقاط البيع: تكامل مباشر مع أجهزة POS في الكانتين.', en: 'Point-of-sale payment: direct integration with the canteen POS devices.' },
+          { ar: 'ضبط المشتريات: تمكين ولي الأمر من تقييد أصناف بعينها.', en: 'Purchase controls: parents can restrict specific items.' },
+          { ar: 'إدارة المخزون: متابعة الأصناف والكميات وتنبيهات النفاد.', en: 'Inventory management: track items and quantities, with low-stock alerts.' },
+          { ar: 'تقارير مالية: كشوف مفصلة عن المبيعات وحسابات الطلاب.', en: 'Financial reporting: detailed statements on sales and student accounts.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'شفافية كاملة في حسابات الطلاب لكل من المدرسة وولي الأمر.', en: 'Full transparency of student accounts for both the school and the parent.' },
+          { ar: 'تنفيذ خلال سبعة أشهر شمل تكامل أنظمة الدفع.', en: 'Delivered in seven months, including payment-system integration.' },
+        ],
+      },
     ],
   },
   'automated-calling-system-for-schools': {
@@ -830,6 +1103,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'أنظمة تعليمية / حلول ذكية للمدارس', en: 'Educational Systems / Smart Solutions for Schools' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – مطورو تطبيقات موبايل، خبراء ذكاء اصطناعي (Text-to-Speech)، محللو نظم، مصممو واجهات UX/UI', en: 'Lean Business Solutions Team – Mobile App Developers, AI ( Text-to-Speech ) Experts, Systems Analysts, UX/UI Designers' } },
     ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'نظام النداء الآلي يستبدل النداء اليدوي على الطلاب بحل صوتي مؤتمت. عند وصول ولي الأمر إلى بوابة المدرسة يُفعّل النداء من تطبيقه، فيحوّل النظام اسم الطالب من نص مكتوب إلى صوت واضح يُبث داخل المدرسة.', en: 'The automated calling system replaces manual student paging with an automated voice solution. When a parent reaches the school gate they trigger the call from their app, and the system converts the student’s name from written text into clear audio broadcast inside the school.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'تسريع تسليم الطلاب وتقليل الازدحام عند البوابة، وإزالة الأخطاء البشرية في النداء اليدوي.', en: 'To speed up student handover and reduce congestion at the gate, while eliminating the human error of manual paging.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للنظام', en: 'Core system capabilities' },
+        bullets: [
+          { ar: 'تحويل النص إلى صوت: نطق أسماء الطلاب بوضوح باستخدام الذكاء الاصطناعي.', en: 'Text to speech: student names pronounced clearly using artificial intelligence.' },
+          { ar: 'تفعيل من تطبيق ولي الأمر: بدء النداء بضغطة واحدة عند الوصول.', en: 'Triggered from the parent app: the call starts with one tap on arrival.' },
+          { ar: 'طابور نداء منظم: ترتيب الطلبات تلقائيًا حسب وقت الوصول.', en: 'An ordered call queue: requests sequenced automatically by arrival time.' },
+          { ar: 'تقليل الأخطاء: إلغاء الاعتماد على النداء اليدوي.', en: 'Fewer errors: no reliance on manual announcements.' },
+          { ar: 'سجل كامل: توثيق كل عملية نداء وتسليم.', en: 'A complete log: every call and handover is recorded.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'تكامل مباشر مع بيانات الطلاب في أنظمة المدرسة.', en: 'Direct integration with student records in the school systems.' },
+          { ar: 'تنفيذ خلال ستة أشهر شمل التطبيق والنظام الصوتي.', en: 'Delivered in six months, covering both the app and the audio system.' },
+        ],
+      },
+    ],
   },
   'appointment-booking-system-for-professional-exams-and-certifications': {
     title: { ar: 'نظام حجز المواعيد للاختبارات والشهادات الاحترافية', en: 'Appointment booking system for professional exams and certifications' },
@@ -848,6 +1148,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'مدة التنفيذ:', en: 'Implementation period:' }, value: { ar: '6 أشهر', en: '6 months' } },
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'الأنظمة التعليمية / الاختبارات الإلكترونية', en: 'Educational Systems / Electronic Tests' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – تحليل نظم، تطوير برمجيات، تصميم UX/UI، إدارة مشروع', en: 'Lean Business Solutions Team – Systems Analysis, Software Development, UX/UI Design, Project Management' } },
+    ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'نظام حجز إلكتروني للاختبارات والشهادات الاحترافية يدير دورة الحجز كاملة: عرض المراكز والمواعيد والمقاعد المتاحة، اختيار الموعد، الدفع الإلكتروني، ثم إصدار التأكيد ومتابعة الحالة.', en: 'An electronic booking system for professional exams and certifications that manages the full booking cycle: browsing centres, dates and available seats, choosing a slot, paying online, then issuing confirmation and tracking status.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'تبسيط حجز الاختبارات للمتقدمين وتمكين الجهة المنظّمة من إدارة المراكز والطاقة الاستيعابية بدقة.', en: 'To simplify exam booking for candidates and let the organising body manage centres and capacity precisely.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للنظام', en: 'Core system capabilities' },
+        bullets: [
+          { ar: 'إدارة المراكز والمقاعد: تحديد الطاقة الاستيعابية لكل مركز وموعد.', en: 'Centre and seat management: set the capacity of each centre and session.' },
+          { ar: 'حجز لحظي: عرض المقاعد المتاحة وتثبيت الحجز فورًا.', en: 'Real-time booking: available seats shown and reservations confirmed instantly.' },
+          { ar: 'دفع إلكتروني آمن: إتمام الرسوم ضمن نفس الرحلة.', en: 'Secure online payment: fees settled within the same journey.' },
+          { ar: 'إشعارات ذكية: تذكير المتقدمين بمواعيدهم وتنبيههم بأي تغيير.', en: 'Smart notifications: candidates are reminded of their appointments and alerted to any change.' },
+          { ar: 'تقارير إدارية: مؤشرات عن الإقبال ومعدلات الحضور.', en: 'Management reporting: indicators on demand and attendance rates.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'إعادة جدولة الموعد أو إلغاؤه وفق سياسة الجهة المنظمة.', en: 'Appointments can be rescheduled or cancelled under the organiser’s policy.' },
+          { ar: 'تنفيذ خلال ستة أشهر.', en: 'Delivered in six months.' },
+        ],
+      },
     ],
   },
   'bus-tracker-app': {
@@ -868,6 +1195,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'تطبيقات تعليمية / أنظمة تتبع ذكية (IoT & GPS)', en: 'Educational Applications / Smart Tracking Systems ( IoT & GPS )' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – تحليل نظم، تطوير تطبيقات Android & iOS، تكامل أنظمة GPS، تصميم UX/UI، إدارة مشروع', en: 'Lean Business Solutions Team – Systems Analysis, Android & iOS App Development, GPS System Integration, UX/UI Design, Project Management' } },
     ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'تطبيق لتتبع الحافلات المدرسية على Android وiOS يعرض موقع الحافلة لحظيًا لأولياء الأمور وإدارة المدرسة. يربط التطبيق أجهزة تتبع GPS بمسارات محددة مسبقًا، ويُشعر ولي الأمر عند اقتراب الحافلة وعند صعود ابنه ونزوله.', en: 'A school-bus tracking app for Android and iOS that shows the bus location in real time to parents and school administration. It ties GPS tracking devices to predefined routes and notifies the parent as the bus approaches and when their child boards and alights.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'رفع مستوى سلامة الطلاب أثناء النقل، وضبط انضباط المسارات، وخفض التكاليف التشغيلية للأسطول.', en: 'To raise student safety during transport, keep routes disciplined, and cut the fleet’s operating costs.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للتطبيق', en: 'Core app capabilities' },
+        bullets: [
+          { ar: 'تتبع لحظي: موقع الحافلة على الخريطة في الوقت الفعلي.', en: 'Live tracking: the bus location on the map in real time.' },
+          { ar: 'إشعارات فورية: تنبيه عند الاقتراب وعند الصعود والنزول.', en: 'Instant notifications: alerts on approach, boarding and alighting.' },
+          { ar: 'إدارة المسارات: تخطيط الخطوط ومتابعة الالتزام بها.', en: 'Route management: plan the lines and monitor adherence to them.' },
+          { ar: 'سلامة الطلاب: تسجيل حضور الطالب في الحافلة ذهابًا وإيابًا.', en: 'Student safety: attendance on the bus recorded both ways.' },
+          { ar: 'تقارير تشغيلية: مؤشرات عن الالتزام بالمواعيد واستخدام المسارات.', en: 'Operational reporting: indicators on punctuality and route usage.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'تنبيه الإدارة عند الخروج عن المسار المحدد.', en: 'The administration is alerted when a bus leaves its assigned route.' },
+          { ar: 'تنفيذ خلال ثمانية أشهر شمل تكامل أجهزة GPS.', en: 'Delivered in eight months, including GPS device integration.' },
+        ],
+      },
+    ],
   },
   'school-one-app': {
     title: { ar: 'تطبيق المدرسة الأولى', en: 'School One App' },
@@ -887,6 +1241,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'التعليم الإلكتروني / تطبيقات المدارس', en: 'E-Learning / School Apps' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – تحليل متطلبات، تصميم UX/UI، تطوير Android & iOS، تكامل أنظمة، إدارة مشروع', en: 'Lean Business Solutions Team – Requirements Analysis, UX/UI Design, Android & iOS Development, Systems Integration, Project Management' } },
     ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'تطبيق «المدرسة الأولى» يجمع قنوات التواصل بين المدرسة وأولياء الأمور في مكان واحد على Android وiOS، ويتيح متابعة الشأن الأكاديمي والإداري للطالب رقميًا بدل المراسلات الورقية.', en: 'The School One App brings every channel between the school and parents into one place on Android and iOS, letting families follow a student’s academic and administrative affairs digitally instead of on paper.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'تسهيل التواصل بين المدرسة والأسرة، وتقليل الوقت والتكلفة التشغيلية، وتحسين تجربة التعليم لجميع الأطراف.', en: 'To make communication between school and family easier, cut operating time and cost, and improve the educational experience for everyone involved.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للتطبيق', en: 'Core app capabilities' },
+        bullets: [
+          { ar: 'قنوات تواصل متعددة: إشعارات، رسائل، وتعميمات من المدرسة مباشرة.', en: 'Multiple channels: notifications, messages and circulars straight from the school.' },
+          { ar: 'متابعة أكاديمية: عرض الدرجات والحضور والجدول الدراسي.', en: 'Academic follow-up: grades, attendance and the timetable in one view.' },
+          { ar: 'خدمات إدارية رقمية: تقديم الطلبات واستلام الردود عبر التطبيق.', en: 'Digital administrative services: submit requests and receive replies in the app.' },
+          { ar: 'خفض التكاليف: الاستغناء عن المطبوعات والاتصالات التقليدية.', en: 'Lower costs: printed material and traditional calls are no longer needed.' },
+          { ar: 'تجربة موحّدة: واجهة واحدة لكل ما يخص الطالب.', en: 'A unified experience: a single interface for everything about the student.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'تكامل مع الأنظمة المدرسية القائمة.', en: 'Integration with the school’s existing systems.' },
+          { ar: 'إتاحة التطبيق على Android وiOS معًا.', en: 'The app ships on Android and iOS alike.' },
+        ],
+      },
+    ],
   },
   'schools-erp-system': {
     title: { ar: 'نظام تخطيط موارد المؤسسات المدرسية', en: 'Schools ERP System' },
@@ -905,6 +1286,33 @@ export const PROJECT_DETAILS: Record<string, ProjectDetail> = {
       { label: { ar: 'مدة التنفيذ:', en: 'Implementation period:' }, value: { ar: '24 شهرًا', en: '24 months' } },
       { label: { ar: 'الفئة:', en: 'Category:' }, value: { ar: 'الأنظمة التعليمية (EdTech / ERP)', en: 'Educational Systems ( EdTech / ERP )' } },
       { label: { ar: 'الفريق:', en: 'Team:' }, value: { ar: 'فريق Lean Business Solutions – تحليل الأنظمة، تطوير، تصميم، إدارة مشروع، دعم فني', en: 'Lean Business Solutions Team – Systems Analysis, Development, Design, Project Management, Technical Support' } },
+    ],
+    sections: [
+      {
+        title: { ar: 'وصف تفصيلي شامل حول المشروع', en: 'A comprehensive, detailed description of the project' },
+        text: { ar: 'نظام تخطيط موارد المؤسسات المدرسية يوحّد العمليات الأكاديمية والإدارية والمالية في منصة واحدة: شؤون الطلاب، الموظفين، الحسابات، والمخازن، متاحة عبر الويب والهاتف المحمول.', en: 'The Schools ERP System unifies academic, administrative and financial operations on a single platform — student affairs, staff, accounts and stores — available on both web and mobile.' },
+      },
+      {
+        title: { ar: 'الهدف', en: 'The goal' },
+        text: { ar: 'أتمتة كل العمليات داخل المدرسة وإنهاء تشتت البيانات بين أنظمة منفصلة، بما يرفع كفاءة الإدارة ويوفّر تقارير دقيقة لصنّاع القرار.', en: 'To automate every process inside the school and end the scattering of data across separate systems, raising administrative efficiency and giving decision-makers accurate reporting.' },
+      },
+      {
+        title: { ar: 'المزايا الأساسية للنظام', en: 'Core system capabilities' },
+        bullets: [
+          { ar: 'شؤون الطلاب: القبول والتسجيل والدرجات والحضور في وحدة واحدة.', en: 'Student affairs: admission, enrolment, grades and attendance in one module.' },
+          { ar: 'شؤون الموظفين: بيانات الكادر والرواتب والإجازات.', en: 'Staff affairs: personnel records, payroll and leave.' },
+          { ar: 'الإدارة المالية: الحسابات والرسوم والمصروفات مع كشوف مفصلة.', en: 'Financial management: accounts, fees and expenses with detailed statements.' },
+          { ar: 'إدارة المخازن: متابعة الأصول والمستلزمات المدرسية.', en: 'Store management: tracking school assets and supplies.' },
+          { ar: 'وصول مرن: استخدام كامل عبر الويب والموبايل.', en: 'Flexible access: full use across web and mobile.' },
+        ],
+      },
+      {
+        title: { ar: 'خصائص إضافية', en: 'Additional features' },
+        bullets: [
+          { ar: 'تقارير شاملة تربط الجانب الأكاديمي بالمالي.', en: 'Comprehensive reports that tie the academic side to the financial one.' },
+          { ar: 'تنفيذ ممتد على أربعة وعشرين شهرًا مع دعم فني مستمر.', en: 'Delivered over twenty-four months with continuous technical support.' },
+        ],
+      },
     ],
   },
 };

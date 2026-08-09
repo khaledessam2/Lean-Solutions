@@ -24,31 +24,31 @@ export class Clients {
   };
 
   /**
-   * Client emblems are not part of the shipped assets, so each partner is shown
-   * with a neutral placeholder mark + its name. Drop the official artwork into
-   * `public/logo/clients/` and swap it in when available.
+   * Official partner emblems, all white-on-transparent so they sit on the dark
+   * section. The name is carried by the image `alt` rather than a caption — the
+   * row reads as a logo wall, the way the brand sheet lays it out.
    */
-  readonly clients: { name: Text; mark: string }[] = [
-    { name: { ar: 'وزارة الحرس الوطني', en: 'Ministry of National Guard' }, mark: 'crest' },
-    { name: { ar: 'وزارة الداخلية', en: 'Ministry of Interior' }, mark: 'shield' },
+  readonly clients: { name: Text; logo: string }[] = [
+    { name: { ar: 'وزارة الحرس الوطني', en: 'Ministry of National Guard' }, logo: 'partners/image-63.png' },
+    { name: { ar: 'وزارة الداخلية', en: 'Ministry of Interior' }, logo: 'partners/image-64-1.png' },
     {
       name: {
         ar: 'مجمع الملك فهد لطباعة المصحف الشريف',
         en: 'King Fahd Glorious Quran Printing Complex',
       },
-      mark: 'dome',
+      logo: 'partners/image-68.png',
     },
-    { name: { ar: 'الأمن العام', en: 'Public Security' }, mark: 'crest' },
+    { name: { ar: 'الأمن العام', en: 'Public Security' }, logo: 'partners/image-66.png' },
     {
       name: {
         ar: 'هيئة رعاية الأشخاص ذوي الإعاقة',
         en: 'Authority of People with Disability',
       },
-      mark: 'care',
+      logo: 'partners/image-65-1.png',
     },
     {
       name: { ar: 'شركة قيمة للحلول لتقنية المعلومات', en: 'Qima IT Solutions' },
-      mark: 'tech',
+      logo: 'partners/Qima-Logo-v3.0-1.png',
     },
   ];
 }

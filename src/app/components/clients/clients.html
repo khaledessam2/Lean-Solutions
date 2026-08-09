@@ -9,42 +9,7 @@
     <ul class="clients__grid" appReveal>
       @for (client of clients; track client.name.en) {
         <li class="client">
-          <span class="client__mark">
-            @switch (client.mark) {
-              @case ('shield') {
-                <svg viewBox="0 0 64 64" aria-hidden="true">
-                  <path d="M32 6l22 8v18c0 14-9 23-22 26C19 55 10 46 10 32V14z" fill="none" stroke="currentColor" stroke-width="2.4" />
-                  <path d="M32 18v22M22 28l10-8 10 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-                </svg>
-              }
-              @case ('dome') {
-                <svg viewBox="0 0 64 64" aria-hidden="true">
-                  <path d="M32 6c8 8 12 14 12 20s-5 10-12 10-12-4-12-10 4-12 12-20z" fill="none" stroke="currentColor" stroke-width="2.4" />
-                  <path d="M14 58V38h36v20M22 58V42h20v16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" />
-                </svg>
-              }
-              @case ('care') {
-                <svg viewBox="0 0 64 64" aria-hidden="true">
-                  <circle cx="32" cy="16" r="7" fill="none" stroke="currentColor" stroke-width="2.4" />
-                  <path d="M14 30h36M32 30v12l-10 16M32 42l10 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
-                </svg>
-              }
-              @case ('tech') {
-                <svg viewBox="0 0 64 64" aria-hidden="true">
-                  <rect x="10" y="14" width="44" height="30" rx="4" fill="none" stroke="currentColor" stroke-width="2.4" />
-                  <path d="M22 52h20M32 44v8M20 26l-6 6 6 6M44 26l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              }
-              @default {
-                <svg viewBox="0 0 64 64" aria-hidden="true">
-                  <circle cx="32" cy="32" r="24" fill="none" stroke="currentColor" stroke-width="2.4" />
-                  <path d="M32 12c6 8 6 32 0 40-6-8-6-32 0-40z" fill="none" stroke="currentColor" stroke-width="2" />
-                  <path d="M12 32h40" fill="none" stroke="currentColor" stroke-width="2" />
-                </svg>
-              }
-            }
-          </span>
-          <span class="client__name">{{ t(client.name) }}</span>
+          <img class="client__logo" [src]="client.logo" [alt]="t(client.name)" loading="lazy" />
         </li>
       }
     </ul>

@@ -12,6 +12,21 @@
 
       <h2 class="detail__title" appReveal>{{ t(svc.title) }}</h2>
 
+      @if (lead(); as intro) {
+        <p class="detail__lead" appReveal>{{ t(intro) }}</p>
+      }
+
+      @if (svc.offerTitle && svc.offers) {
+        <div class="detail__offer" appReveal>
+          <h3>{{ t(svc.offerTitle) }}</h3>
+          <ul class="bullets">
+            @for (offer of svc.offers; track $index) {
+              <li>{{ t(offer) }}</li>
+            }
+          </ul>
+        </div>
+      }
+
       <div class="detail__features" appReveal>
         <h3>{{ t(svc.featuresTitle) }}</h3>
         <ul class="checklist">
@@ -74,6 +89,28 @@
           </dl>
         </aside>
       </div>
+
+      @for (block of prj.sections; track $index; let first = $first) {
+        <div class="detail__write-up" appReveal>
+          @if (first) {
+            <h2 class="detail__title">{{ t(block.title) }}</h2>
+          } @else {
+            <h3 class="detail__write-up-title">{{ t(block.title) }}</h3>
+          }
+
+          @if (block.text) {
+            <p class="detail__lead">{{ t(block.text) }}</p>
+          }
+
+          @if (block.bullets) {
+            <ul class="bullets">
+              @for (bullet of block.bullets; track $index) {
+                <li>{{ t(bullet) }}</li>
+              }
+            </ul>
+          }
+        </div>
+      }
     </div>
   </section>
 } @else {

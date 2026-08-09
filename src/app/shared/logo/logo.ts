@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { I18n } from '../../core/i18n';
-import { RouterLink } from "@angular/router";
 
 /** Brand lockup artwork, keyed by language + background. Intrinsic sizes prevent layout shift. */
 const LOCKUPS = {
@@ -16,7 +15,7 @@ const LOCKUPS = {
   templateUrl: './logo.html',
   styleUrl: './logo.css',
   host: { '[class.logo--light]': 'variant() === "light"' },
-  imports: [RouterLink],
+  imports: [],
 })
 export class Logo {
   private readonly i18n = inject(I18n);

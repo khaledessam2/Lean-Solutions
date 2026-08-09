@@ -19,6 +19,19 @@
   line-height: 1.9;
 }
 
+.detail__offer { margin-top: 30px; }
+.detail__offer h3 { font-size: 22px; font-weight: 600; margin-bottom: 14px; }
+
+/* plain discs, unlike the checklist below it — this block lists what is on offer,
+   the checklist states the payoff */
+.bullets { display: grid; gap: 10px; padding-inline-start: 20px; list-style: disc; }
+
+.bullets li {
+  color: var(--body);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
 .detail__features { margin-top: 34px; }
 .detail__features h3 { font-size: 22px; font-weight: 600; margin-bottom: 18px; }
 
@@ -60,6 +73,13 @@
 
 .specs__row dt { color: var(--ink); font-weight: 600; font-size: 15px; }
 .specs__row dd { margin: 0; color: var(--body); font-size: 15px; line-height: 1.7; }
+
+/* full-width write-up blocks under the two-column layout — the first opens with
+   an h2, the rest are subsections under it */
+.detail__write-up { margin-top: 30px; }
+.detail__write-up:first-of-type { margin-top: 48px; }
+.detail__write-up-title { font-size: 20px; font-weight: 600; margin-bottom: 14px; }
+.detail__write-up .bullets { margin-top: 14px; }
 
 /* ---------- numbered process steps ---------- */
 .steps {

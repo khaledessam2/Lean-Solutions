@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { Contact } from '../../components/contact/contact';
-import { ProjectDetail, SERVICE_COVER, ServiceDetail } from '../../core/catalog';
+import { ProjectDetail, SERVICE_COVER, SERVICES, ServiceDetail } from '../../core/catalog';
 import { PROJECT_DETAILS, SERVICE_DETAILS } from '../../core/catalog-details';
 import { I18n, Text } from '../../core/i18n';
 import { CheckIcon } from '../../shared/check-icon/check-icon';
@@ -38,6 +38,13 @@ export class DetailPage {
 
   readonly project = computed<ProjectDetail | undefined>(() =>
     this.kind() === 'project' ? PROJECT_DETAILS[this.slug()] : undefined,
+  );
+
+  /** the intro paragraph is the service card's own copy — kept in one place, not duplicated here */
+  readonly lead = computed<Text | undefined>(() =>
+    this.kind() === 'service'
+      ? SERVICES.find((service) => service.slug === this.slug())?.text
+      : undefined,
   );
 
   /** the page heading, or the not-found copy when the slug does not resolve */

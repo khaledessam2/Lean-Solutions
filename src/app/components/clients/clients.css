@@ -1,37 +1,44 @@
 .clients .head-block { text-align: center; margin-inline: auto; max-width: 720px; }
 .clients .section-lead { margin-inline: auto; }
 
+/* five emblems across, the sixth centred on a row of its own — an explicit grid
+   rather than wrapped flex, which would fit all six on one line at this width */
 .clients__grid {
   position: relative;
   z-index: 1;
   margin-top: 56px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 26px 44px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  align-items: center;
+  gap: 44px 30px;
 }
+
+.clients__grid > .client:last-child { grid-column: 1 / -1; }
 
 .client {
-  width: 168px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  text-align: center;
-  color: rgba(255, 255, 255, .78);
-  opacity: .82;
-  transition: opacity .3s ease, transform .3s ease, color .3s ease;
+  justify-content: center;
+  opacity: .85;
+  transition: opacity .3s ease, transform .3s ease;
 }
 
-.client:hover { opacity: 1; transform: translateY(-6px); color: #fff; }
+.client:hover { opacity: 1; transform: translateY(-6px); }
 
-.client__mark { width: 58px; height: 58px; }
-.client__mark svg { width: 100%; height: 100%; }
+/* the emblems differ in aspect ratio, so cap both axes and let each keep its own */
+.client__logo {
+  max-height: 92px;
+  max-width: 100%;
+  width: auto;
+  object-fit: contain;
+}
 
-.client__name { font-size: 13.5px; font-weight: 700; line-height: 1.6; }
+@media (max-width: 900px) {
+  .clients__grid { grid-template-columns: repeat(3, 1fr); gap: 36px 24px; }
+  .client__logo { max-height: 76px; }
+}
 
-@media (max-width: 640px) {
-  .clients__grid { gap: 22px; }
-  .client { width: 132px; }
-  .client__mark { width: 46px; height: 46px; }
+@media (max-width: 560px) {
+  .clients__grid { grid-template-columns: repeat(2, 1fr); gap: 30px 20px; }
+  .client__logo { max-height: 64px; }
 }

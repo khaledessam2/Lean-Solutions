@@ -23,6 +23,13 @@ export interface ProcessStep {
 
 export interface ServiceDetail {
   title: Text;
+  /**
+   * Optional "what we offer" block, rendered as a plain bulleted list above the
+   * feature checklist. The lead paragraph above it is not stored here — it is
+   * the same copy as the service card, so the detail page reads it from SERVICES.
+   */
+  offerTitle?: Text;
+  offers?: Text[];
   featuresTitle: Text;
   features: Text[];
   processTitle: Text;
@@ -53,6 +60,19 @@ export interface ProjectDetail {
   features: Text[];
   infoTitle: Text;
   info: InfoPair[];
+  /**
+   * Optional long-form write-up below the spec panel. Each block carries a
+   * heading plus a paragraph, a bullet list, or both — projects differ in how
+   * many they need. Entries without it render exactly as before.
+   */
+  sections?: DetailBlock[];
+}
+
+/** a headed block of prose and/or bullets, used for the project write-up */
+export interface DetailBlock {
+  title: Text;
+  text?: Text;
+  bullets?: Text[];
 }
 
 /** the cover art every service detail page shares on the live site */
@@ -68,7 +88,7 @@ export const SERVICES: ServiceCard[] = [
       ar: 'لين أكاديمي هو نظام متكامل لإدارة التعليم والتدريب الإلكتروني (LMS)، صُمم خصيصًا ليلبي احتياجات المؤسسات الحكومية، الشركات، والمراكز التدريبية في تطوير رأس المال البشري باستخدام أحدث التقنيات الرقمية. يوفر النظام تجربة تعليمية مرنة تدعم أنماط التدريب المختلفة',
       en: 'Lean Academy is an integrated e-learning and training management system (LMS), specifically designed to meet the needs of government institutions, companies, and training centers in developing human capital using the latest digital technologies. The system provides a flexible learning experience that supports various training styles.',
     },
-    hasDetail: false,
+    hasDetail: true,
   },
   {
     slug: 'ui-ux-design',
