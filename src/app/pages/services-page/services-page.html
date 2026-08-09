@@ -38,10 +38,18 @@
 
           <h3 class="scard__title">{{ t(service.title) }}</h3>
           <p class="scard__text">{{ t(service.text) }}</p>
-          <a
-            class="scard__more"
-            [routerLink]="service.hasDetail ? ['/services', service.slug] : ['/']"
-            [fragment]="service.hasDetail ? undefined : 'contact'">{{ t(copy.read) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          @if (service.externalUrl) {
+            <a
+              class="scard__more"
+              [href]="service.externalUrl"
+              target="_blank"
+              rel="noopener">{{ t(copy.read) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          } @else {
+            <a
+              class="scard__more"
+              [routerLink]="service.hasDetail ? ['/services', service.slug] : ['/']"
+              [fragment]="service.hasDetail ? undefined : 'contact'">{{ t(copy.read) }} <span class="arrow"><svg viewBox="0 0 12 10" aria-hidden="true"><path d="M1 5L11 5M1 5L5 1M1 5L5 9" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+          }
         </article>
       }
     </div>

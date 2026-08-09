@@ -3,6 +3,7 @@ import { Contact } from '../../components/contact/contact';
 import { ProjectDetail, SERVICE_COVER, SERVICES, ServiceDetail } from '../../core/catalog';
 import { PROJECT_DETAILS, SERVICE_DETAILS } from '../../core/catalog-details';
 import { I18n, Text } from '../../core/i18n';
+import { PageSeo, SITE, clamp, useSeo } from '../../core/seo';
 import { CheckIcon } from '../../shared/check-icon/check-icon';
 import { Crumb, PageBanner } from '../../shared/page-banner/page-banner';
 import { Reveal } from '../../shared/reveal';
@@ -65,4 +66,63 @@ export class DetailPage {
       en: 'We could not find what you were looking for. Browse the rest of our services and projects, or get in touch.',
     },
   };
+
+  constructor() {
+    // one component backs 30+ prerendered URLs, so its metadata has to be derived
+    // per slug — otherwise every detail page ships the same title and description
+    useSeo(() => this.seo());
+  }
+
+  private readonly seo = computed<PageSeo>(() => {
+    const lang = this.i18n.lang();
+    const kind = this.kind();
+    const service = this.service();
+    const project = this.project();
+    const url = `${SITE.origin}/${kind === 'service' ? 'services' : 'projects'}/${this.slug()}`;
+
+    // an unknown slug still renders (the route matches any), so keep it out of the index
+    if (!service && !project) {
+      return { title: this.notFound.title, description: this.notFound.text, noIndex: true };
+    }
+
+    const title = service?.title ?? project!.title;
+    const description = service ? (this.lead() ?? service.title) : project!.aboutText;
+
+    return {
+      title,
+      description,
+      type: 'article',
+      image: project?.image ?? this.serviceCover,
+      breadcrumbs: this.trail(),
+      jsonLd: [
+        service
+          ? {
+              '@type': 'Service',
+              name: title[lang],
+              description: clamp(description[lang], 300),
+              serviceType: title.en,
+              url,
+              areaServed: { '@type': 'Country', name: SITE.country[lang] },
+              provider: { '@id': `${SITE.origin}/#organization` },
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: service.featuresTitle[lang],
+                itemListElement: service.features.map((feature) => ({
+                  '@type': 'Offer',
+                  itemOffered: { '@type': 'Service', name: feature[lang] },
+                })),
+              },
+            }
+          : {
+              '@type': 'CreativeWork',
+              name: title[lang],
+              description: clamp(description[lang], 300),
+              url,
+              image: `${SITE.origin}/${project!.image}`,
+              inLanguage: lang,
+              creator: { '@id': `${SITE.origin}/#organization` },
+            },
+      ],
+    };
+  });
 }

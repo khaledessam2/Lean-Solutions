@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Contact } from '../../components/contact/contact';
 import { SERVICES, ServiceCard } from '../../core/catalog';
 import { I18n, Text } from '../../core/i18n';
+import { SITE, clamp, useSeo } from '../../core/seo';
 import { PageBanner } from '../../shared/page-banner/page-banner';
 import { Reveal } from '../../shared/reveal';
 
@@ -17,6 +18,43 @@ export class ServicesPage {
   private readonly i18n = inject(I18n);
 
   readonly t = (value: Text): string => this.i18n.t(value);
+
+  constructor() {
+    useSeo(() => {
+      const lang = this.i18n.lang();
+
+      return {
+        path: '/services',
+        title: this.copy.heading,
+        // not `copy.lead` — the projects page publishes that same paragraph, and
+        // two pages sharing one description is a duplicate-content signal
+        description: {
+          ar: 'استعرض خدمات لين بيزنس سوليشنز: منصات التعليم الإلكتروني، تطوير الويب والجوال، الذكاء الاصطناعي والأمن السيبراني، إلى جانب الحوكمة وإدارة الأداء والاستشارات الإدارية.',
+          en: 'Browse the Lean Business Solutions catalogue: e-learning platforms, web and mobile development, AI and cybersecurity, alongside governance, performance management and management consulting.',
+        },
+        image: 'images/work-steps.png',
+        // the full catalogue, so the detail pages are discoverable as a set
+        jsonLd: [
+          {
+            '@type': 'ItemList',
+            name: `${this.copy.title[lang]} — ${SITE.name[lang]}`,
+            numberOfItems: this.services.length,
+            itemListElement: this.services.map((service, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              item: {
+                '@type': 'Service',
+                name: service.title[lang],
+                description: clamp(service.text[lang]),
+                url: `${SITE.origin}/services/${service.slug}`,
+                provider: { '@id': `${SITE.origin}/#organization` },
+              },
+            })),
+          },
+        ],
+      };
+    });
+  }
 
   readonly copy = {
     heading: { ar: 'الخدمات', en: 'Services' },

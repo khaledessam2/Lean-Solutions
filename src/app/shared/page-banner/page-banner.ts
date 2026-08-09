@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { I18n, Text } from '../../core/i18n';
+import { Crumb } from '../../core/seo';
 
-/** one crumb between "home" and the current page */
-export interface Crumb {
-  label: Text;
-  link: string;
-}
+/**
+ * One crumb between "home" and the current page. It is defined in `core/seo`
+ * because the same trail feeds both this banner and the BreadcrumbList that
+ * ships in the page's structured data — re-exported here so callers that only
+ * care about the banner keep importing from one place.
+ */
+export type { Crumb };
 
 /**
  * The dark page header every inner page opens with — the same background art

@@ -3,6 +3,7 @@ import { RouterLink } from '@angular/router';
 import { Contact } from '../../components/contact/contact';
 import { PROJECTS, ProjectCard } from '../../core/catalog';
 import { I18n, Text } from '../../core/i18n';
+import { SITE, clamp, useSeo } from '../../core/seo';
 import { PageBanner } from '../../shared/page-banner/page-banner';
 import { Reveal } from '../../shared/reveal';
 
@@ -19,6 +20,42 @@ export class ProjectsPage {
   private readonly i18n = inject(I18n);
 
   readonly t = (value: Text): string => this.i18n.t(value);
+
+  constructor() {
+    useSeo(() => {
+      const lang = this.i18n.lang();
+
+      return {
+        path: '/projects',
+        title: this.copy.heading,
+        // deliberately not `copy.lead`: the services page carries the same paragraph
+        description: {
+          ar: 'أعمال لين بيزنس سوليشنز مع جهات حكومية وشركات: منصات تدريب رقمية، أنظمة إدارة مدرسية، تطبيقات جوال ومحافظ إلكترونية وأنظمة حجز وتتبع.',
+          en: 'Work delivered by Lean Business Solutions for government entities and companies: digital training platforms, school management systems, mobile apps, e-wallets, booking and tracking systems.',
+        },
+        image: this.projects[0]?.image,
+        jsonLd: [
+          {
+            '@type': 'ItemList',
+            name: `${this.copy.title[lang]} — ${SITE.name[lang]}`,
+            numberOfItems: this.projects.length,
+            itemListElement: this.projects.map((project, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              item: {
+                '@type': 'CreativeWork',
+                name: project.title[lang],
+                description: clamp(project.text[lang]),
+                image: `${SITE.origin}/${project.image}`,
+                url: `${SITE.origin}/projects/${project.slug}`,
+                creator: { '@id': `${SITE.origin}/#organization` },
+              },
+            })),
+          },
+        ],
+      };
+    });
+  }
 
   readonly copy = {
     heading: { ar: 'المشاريع', en: 'Projects' },

@@ -13,6 +13,8 @@ export interface ServiceCard {
   text: Text;
   /** false for the one card whose button links straight to the contact section */
   hasDetail: boolean;
+  /** when set, the card's button opens this site instead of the detail route */
+  externalUrl?: string;
 }
 
 export interface ProcessStep {
@@ -89,6 +91,7 @@ export const SERVICES: ServiceCard[] = [
       en: 'Lean Academy is an integrated e-learning and training management system (LMS), specifically designed to meet the needs of government institutions, companies, and training centers in developing human capital using the latest digital technologies. The system provides a flexible learning experience that supports various training styles.',
     },
     hasDetail: true,
+    externalUrl: 'https://leanacademy.sa/',
   },
   {
     slug: 'ui-ux-design',

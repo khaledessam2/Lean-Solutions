@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Contact } from '../../components/contact/contact';
 import { I18n, Text } from '../../core/i18n';
+import { useSeo } from '../../core/seo';
 import { CheckIcon } from '../../shared/check-icon/check-icon';
 import { Pillars } from '../../shared/pillars/pillars';
 import { Reveal } from '../../shared/reveal';
@@ -32,6 +33,18 @@ export class AboutPage {
     title: { ar: 'من نحن', en: 'About Us' },
     home: { ar: 'الرئيسية', en: 'Home' },
   };
+
+  constructor() {
+    useSeo(() => ({
+      path: '/about',
+      title: this.banner.title,
+      description: {
+        ar: 'تعرف على لين بيزنس سوليشنز: رؤيتنا ورسالتنا وقيمنا، وكيف ندعم المؤسسات في المملكة بحلول التعليم الإلكتروني والتحول الرقمي والاستشارات الإدارية.',
+        en: 'Meet Lean Business Solutions: our vision, mission and values, and how we support organisations across Saudi Arabia with e-learning, digital transformation and management consulting.',
+      },
+      image: 'images/why-us.png',
+    }));
+  }
 
   readonly intro = {
     eyebrow: { ar: 'من نحن', en: 'Who are we?' },
