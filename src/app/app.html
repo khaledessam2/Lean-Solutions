@@ -1,7 +1,16 @@
-<app-header />
+@if (loaded()) {
+  <app-header />
 
-<main>
-  <router-outlet />
-</main>
+  <main>
+    <router-outlet />
+  </main>
 
-<app-footer />
+  <app-footer />
+} @else {
+  <main class="content-error">
+    <div>
+      <h1>الموقع مش قادر يحمّل محتواه</h1>
+      <p>{{ failure() ?? 'المحتوى لسه بيتحمّل.' }}</p>
+    </div>
+  </main>
+}

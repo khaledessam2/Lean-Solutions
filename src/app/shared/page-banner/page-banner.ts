@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core
 import { RouterLink } from '@angular/router';
 import { I18n, Text } from '../../core/i18n';
 import { Crumb } from '../../core/seo';
+import { ContentStore } from '../../core/content-store';
 
 /**
  * One crumb between "home" and the current page. It is defined in `core/seo`
@@ -23,6 +24,7 @@ export type { Crumb };
   styleUrl: './page-banner.css',
 })
 export class PageBanner {
+  private readonly store = inject(ContentStore);
   readonly heading = input.required<Text>();
   /** intermediate crumbs; "home" and the current page are added automatically */
   readonly trail = input<Crumb[]>([]);
@@ -30,5 +32,5 @@ export class PageBanner {
   private readonly i18n = inject(I18n);
 
   readonly t = (value: Text): string => this.i18n.t(value);
-  readonly home: Text = { ar: 'الرئيسية', en: 'Home' };
+  readonly home: Text = this.store.content.common.home;
 }

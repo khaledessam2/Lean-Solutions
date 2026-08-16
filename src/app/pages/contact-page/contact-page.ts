@@ -1,8 +1,10 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Contact } from '../../components/contact/contact';
 import { I18n, Text } from '../../core/i18n';
-import { SITE, useSeo } from '../../core/seo';
+import { useSeo } from '../../core/seo';
 import { PageBanner } from '../../shared/page-banner/page-banner';
+import { ContentStore } from '../../core/content-store';
 
 /**
  * The Contact page — the banner, the shared contact block (form + details card)
@@ -16,14 +18,20 @@ import { PageBanner } from '../../shared/page-banner/page-banner';
   styleUrl: './contact-page.css',
 })
 export class ContactPage {
+  private readonly store = inject(ContentStore);
+  private readonly site = this.store.content.site;
   private readonly i18n = inject(I18n);
 
   readonly t = (value: Text): string => this.i18n.t(value);
 
-  readonly copy = {
-    heading: { ar: 'اتصل بنا', en: 'Contact Us' },
-    mapTitle: { ar: 'موقع المكتب على الخريطة', en: 'Office location on the map' },
-  };
+  readonly copy = this.store.pages.contact;
+
+  /**
+   * The map URL is a resource URL, so Angular will not accept it as a plain
+   * string. It is not user input — it comes from the site's own settings, which
+   * only an authenticated admin can write — so trusting it is safe here.
+   */
+  readonly mapEmbed = inject(DomSanitizer).bypassSecurityTrustResourceUrl(this.store.content.site.mapEmbed);
 
   constructor() {
     useSeo(() => {
@@ -31,17 +39,13 @@ export class ContactPage {
 
       return {
         path: '/contact',
-        title: this.copy.heading,
-        description: {
-          ar: `تواصل مع لين بيزنس سوليشنز في ${SITE.city.ar}: ${SITE.phone} أو ${SITE.email}. نستقبل طلبات الاستشارة من الأحد إلى الخميس، 8 ص – 4 م.`,
-          en: `Get in touch with Lean Business Solutions in ${SITE.city.en}: ${SITE.phone} or ${SITE.email}. We take enquiries Sunday to Thursday, 8 AM – 4 PM.`,
-        },
+        ...this.store.pages.contact.seo,
         jsonLd: [
           {
             '@type': 'ContactPage',
             name: this.copy.heading[lang],
-            url: `${SITE.origin}/contact`,
-            mainEntity: { '@id': `${SITE.origin}/#organization` },
+            url: `${this.site.origin}/contact`,
+            mainEntity: { '@id': `${this.site.origin}/#organization` },
           },
         ],
       };

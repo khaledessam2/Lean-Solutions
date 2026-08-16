@@ -2,6 +2,7 @@ import { DOCUMENT } from '@angular/common';
 import { Injectable, effect, inject } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ContentStore } from './content-store';
 import { I18n, Lang, Text } from './i18n';
 
 /**
@@ -11,29 +12,16 @@ import { I18n, Lang, Text } from './i18n';
  * `<head>` — title, description, canonical, hreflang, Open Graph, Twitter and a
  * JSON-LD graph. It re-runs whenever the language changes, so the tags always
  * match what is on screen, and because it writes through `DOCUMENT` it also
- * runs during prerendering: every built page ships its own tags in the HTML.
+ * runs during server rendering: every page ships its own tags in the HTML.
  */
 
-/** Change this one line when the site moves to its production domain. */
-export const SITE_ORIGIN = 'https://leansolutions.com.sa';
-
-export const SITE = {
-  origin: SITE_ORIGIN,
-  name: { ar: 'لين بيزنس سوليشنز', en: 'Lean Business Solutions' } satisfies Text,
-  legalName: 'Lean Business Solutions',
-  logo: 'logo/logo-full.png',
-  /** the share-card fallback for pages that do not name their own image */
-  ogImage: 'images/hero-bg.jpg',
-  phone: '+966547378443',
-  email: 'info@leansolutions.com.sa',
-  city: { ar: 'الرياض', en: 'Riyadh' } satisfies Text,
-  country: { ar: 'المملكة العربية السعودية', en: 'Saudi Arabia' } satisfies Text,
-  linkedin: 'https://www.linkedin.com/company/lbs-sa/',
-};
-
-/** the id every node in the graph points at, so the Organization is stated once */
-const ORG_ID = `${SITE_ORIGIN}/#organization`;
-const SITE_ID = `${SITE_ORIGIN}/#website`;
+/**
+ * The ids every node in the JSON-LD graph points at, so the Organization is
+ * stated once and referenced from everywhere else. They are derived from the
+ * site's own origin, which is editable, so they are built per render.
+ */
+const orgId = (origin: string) => `${origin}/#organization`;
+const siteId = (origin: string) => `${origin}/#website`;
 
 /** Open Graph locale codes, keyed by our two languages. */
 const OG_LOCALE: Record<Lang, string> = { ar: 'ar_SA', en: 'en_US' };
@@ -79,18 +67,19 @@ export class Seo {
   private readonly document = inject(DOCUMENT);
   private readonly router = inject(Router);
   private readonly i18n = inject(I18n);
+  private readonly site = inject(ContentStore).content.site;
 
   apply(page: PageSeo): void {
     const lang = this.i18n.lang();
-    const brand = SITE.name[lang];
+    const brand = this.site.name[lang];
     const heading = page.title[lang];
     // a page whose own title already names the brand does not get it twice
     const title = heading.includes(brand) ? heading : `${heading} | ${brand}`;
     const description = clamp(page.description[lang]);
 
     const path = this.normalise(page.path ?? this.router.url);
-    const url = SITE.origin + path;
-    const image = `${SITE.origin}/${page.image ?? SITE.ogImage}`;
+    const url = this.site.origin + path;
+    const image = `${this.site.origin}/${page.image ?? this.site.ogImage}`;
 
     this.title.setTitle(title);
     this.tag('name', 'description', description);
@@ -173,26 +162,26 @@ export class Seo {
   private organization(lang: Lang): Record<string, unknown> {
     return {
       '@type': 'Organization',
-      '@id': ORG_ID,
-      name: SITE.name[lang],
-      legalName: SITE.legalName,
-      url: `${SITE.origin}/`,
-      logo: `${SITE.origin}/${SITE.logo}`,
-      image: `${SITE.origin}/${SITE.ogImage}`,
-      email: SITE.email,
-      telephone: SITE.phone,
-      sameAs: [SITE.linkedin],
+      '@id': orgId(this.site.origin),
+      name: this.site.name[lang],
+      legalName: this.site.legalName,
+      url: `${this.site.origin}/`,
+      logo: `${this.site.origin}/${this.site.logo}`,
+      image: `${this.site.origin}/${this.site.ogImage}`,
+      email: this.site.email,
+      telephone: this.site.phone,
+      sameAs: [this.site.linkedin],
       address: {
         '@type': 'PostalAddress',
-        addressLocality: SITE.city[lang],
+        addressLocality: this.site.city[lang],
         addressCountry: 'SA',
       },
       contactPoint: [
         {
           '@type': 'ContactPoint',
           contactType: 'customer service',
-          telephone: SITE.phone,
-          email: SITE.email,
+          telephone: this.site.phone,
+          email: this.site.email,
           areaServed: 'SA',
           availableLanguage: ['ar', 'en'],
         },
@@ -203,11 +192,11 @@ export class Seo {
   private website(lang: Lang): Record<string, unknown> {
     return {
       '@type': 'WebSite',
-      '@id': SITE_ID,
-      name: SITE.name[lang],
-      url: `${SITE.origin}/`,
+      '@id': siteId(this.site.origin),
+      name: this.site.name[lang],
+      url: `${this.site.origin}/`,
       inLanguage: lang,
-      publisher: { '@id': ORG_ID },
+      publisher: { '@id': orgId(this.site.origin) },
     };
   }
 
@@ -224,8 +213,8 @@ export class Seo {
       description,
       url,
       inLanguage: lang,
-      isPartOf: { '@id': SITE_ID },
-      about: { '@id': ORG_ID },
+      isPartOf: { '@id': siteId(this.site.origin) },
+      about: { '@id': orgId(this.site.origin) },
     };
   }
 
@@ -249,7 +238,7 @@ export class Seo {
           name: crumb.label[lang],
           item: crumb.link.startsWith('http')
             ? crumb.link
-            : SITE.origin + (crumb.link === '/' ? '/' : crumb.link),
+            : this.site.origin + (crumb.link === '/' ? '/' : crumb.link),
         })),
       },
     ];

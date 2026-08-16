@@ -9,10 +9,11 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { PROJECTS, ProjectCard } from '../../core/catalog';
+import { ProjectCard } from '../../core/catalog';
 import { RouterLink } from '@angular/router';
 import { I18n, Text } from '../../core/i18n';
 import { Reveal } from '../../shared/reveal';
+import { ContentStore } from '../../core/content-store';
 
 @Component({
   selector: 'app-projects',
@@ -22,26 +23,16 @@ import { Reveal } from '../../shared/reveal';
   styleUrl: './projects.css',
 })
 export class Projects implements OnInit {
+  private readonly store = inject(ContentStore);
   private readonly destroyRef = inject(DestroyRef);
   private readonly i18n = inject(I18n);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly t = (value: Text): string => this.i18n.t(value);
 
-  readonly copy = {
-    eyebrow: { ar: 'مشاريعنا', en: 'Our projects' },
-    title: { ar: 'قصص نجاح نصنعها مع عملائنا', en: 'Success stories we build with our clients' },
-    lead: {
-      ar: 'في لين بيزنس سوليشنز نؤمن أن كل مشروع هو قصة نجاح تُكتب بالشراكة مع عملائنا.',
-      en: 'At Lean Business Solutions we believe every project is a success story written in partnership with our clients.',
-    },
-    more: { ar: 'عرض المزيد', en: 'View more' },
-    view: { ar: 'عرض المشروع', en: 'View project' },
-    prev: { ar: 'السابق', en: 'Previous' },
-    next: { ar: 'التالي', en: 'Next' },
-  };
+  readonly copy = this.store.content.projects;
 
-  readonly projects: ProjectCard[] = PROJECTS;
+  readonly projects: ProjectCard[] = this.store.projects;
 
   readonly index = signal(0);
   readonly visible = signal(3);

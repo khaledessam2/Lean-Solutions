@@ -9,10 +9,12 @@ import {
   inject,
   signal,
 } from '@angular/core';
-import { SERVICES, ServiceCard } from '../../core/catalog';
+import { ServiceCard } from '../../core/catalog';
 import { RouterLink } from '@angular/router';
+import { FilterTab } from '../../core/content';
 import { I18n, Text } from '../../core/i18n';
 import { Reveal } from '../../shared/reveal';
+import { ContentStore } from '../../core/content-store';
 
 @Component({
   selector: 'app-services',
@@ -22,33 +24,18 @@ import { Reveal } from '../../shared/reveal';
   styleUrl: './services.css',
 })
 export class Services implements OnInit {
+  private readonly store = inject(ContentStore);
   private readonly destroyRef = inject(DestroyRef);
   private readonly i18n = inject(I18n);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
   readonly t = (value: Text): string => this.i18n.t(value);
 
-  readonly copy = {
-    eyebrow: { ar: 'خدماتنا', en: 'Our services' },
-    title: {
-      ar: 'تعلم تفاعلي، تحول رقمي شامل ، إدارة فعّالة، ذكاء اصطناعي',
-      en: 'Interactive learning, full digital transformation, effective management, artificial intelligence',
-    },
-    more: { ar: 'عرض المزيد', en: 'View more' },
-    read: { ar: 'اقرأ المزيد', en: 'Read more' },
-    tabs: { ar: 'تصنيفات الخدمات', en: 'Service categories' },
-    prev: { ar: 'السابق', en: 'Previous' },
-    next: { ar: 'التالي', en: 'Next' },
-  };
+  readonly copy = this.store.content.services;
 
-  readonly filters: { key: string; label: Text }[] = [
-    { key: 'all', label: { ar: 'الكل', en: 'All' } },
-    { key: 'elearning', label: { ar: 'التعليم الالكتروني', en: 'E-learning' } },
-    { key: 'digital', label: { ar: 'التحول الرقمي', en: 'Digital transformation' } },
-    { key: 'management', label: { ar: 'الاستشارات الإدارية', en: 'Management consulting' } },
-  ];
+  readonly filters: FilterTab[] = this.store.content.services.filters;
 
-  readonly services: ServiceCard[] = SERVICES;
+  readonly services: ServiceCard[] = this.store.services;
 
   readonly activeFilter = signal<string>('all');
   readonly index = signal(0);

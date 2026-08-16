@@ -29,6 +29,11 @@ yarn-error.log
 !.vscode/mcp.json
 .history/*
 
+# Secrets — the service-role key lives here
+.env
+.env.*
+!.env.example
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/

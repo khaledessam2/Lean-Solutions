@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, HostListener, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { NavLink } from '../../core/content';
 import { I18n, Text } from '../../core/i18n';
 import { Logo } from '../../shared/logo/logo';
+import { ContentStore } from '../../core/content-store';
 
 @Component({
   selector: 'app-header',
@@ -11,18 +13,14 @@ import { Logo } from '../../shared/logo/logo';
   styleUrl: './header.css',
 })
 export class Header {
+  private readonly store = inject(ContentStore);
   private readonly i18n = inject(I18n);
 
   /** router links, so the nav still works when the About page is the active route */
-  readonly links: { label: Text; path: string }[] = [
-    { label: { ar: 'الرئيسية', en: 'Home' }, path: '/' },
-    { label: { ar: 'من نحن', en: 'About us' }, path: '/about' },
-    { label: { ar: 'الخدمات', en: 'Services' }, path: '/services' },
-    { label: { ar: 'المشاريع', en: 'Projects' }, path: '/projects' },
-    { label: { ar: 'اتصل بنا', en: 'Contact us' }, path: '/contact' },
-  ];
+  readonly links: NavLink[] = this.store.content.header.links;
 
-  readonly cta: Text = { ar: 'دعنا نتحدث', en: "Let's talk" };
+  readonly cta: Text = this.store.content.header.cta;
+  readonly copy = this.store.content.header;
 
   readonly scrolled = signal(false);
   readonly menuOpen = signal(false);
