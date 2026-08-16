@@ -1,0 +1,17 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "ng build && rm -f dist/lean-solutions/browser/index.csr.html",
+  "outputDirectory": "dist/lean-solutions/browser",
+  "functions": {
+    "api/index.mjs": {
+      "includeFiles": "dist/lean-solutions/server/**"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/api"
+    }
+  ]
+}
