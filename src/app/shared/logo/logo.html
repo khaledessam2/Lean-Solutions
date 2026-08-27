@@ -1,8 +1,3 @@
-<a class="logo" href="https://leanacademy.sa/" target="_blank" [attr.aria-label]="isArabic() ? 'لين بيزنس سوليشنز' : 'Lean Business Solutions'">
-  <img
-    class="logo__lockup"
-    [src]="lockup().src"
-    [width]="lockup().width"
-    [height]="lockup().height"
-    alt="" />
+<a class="logo" routerLink="/" [attr.aria-label]="isArabic() ? 'لين بيزنس سوليشنز' : 'Lean Business Solutions'">
+  <img class="logo__lockup" [src]="lockup().src" [width]="lockup().width" [height]="lockup().height" alt="" />
 </a>

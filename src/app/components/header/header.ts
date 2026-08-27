@@ -16,7 +16,6 @@ export class Header {
   private readonly store = inject(ContentStore);
   private readonly i18n = inject(I18n);
 
-  /** router links, so the nav still works when the About page is the active route */
   readonly links: NavLink[] = this.store.content.header.links;
 
   readonly cta: Text = this.store.content.header.cta;
@@ -28,8 +27,7 @@ export class Header {
   readonly t = (value: Text): string => this.i18n.t(value);
   readonly isArabic = this.i18n.isArabic;
 
-  @HostListener('window:scroll')
-  onScroll(): void {
+  @HostListener('window:scroll') onScroll(): void {
     this.scrolled.set(window.scrollY > 20);
   }
 
