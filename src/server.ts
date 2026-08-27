@@ -8,6 +8,7 @@ import express from 'express';
 import { join } from 'node:path';
 import { TTL, clearContentCache, fetchContentRows } from './app/core/content-source.server';
 import { fromRows } from './app/core/content-rows';
+import { environment } from './environments/environment';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
@@ -124,6 +125,32 @@ app.use(
     redirect: false,
   }),
 );
+
+/**
+ * Anything under a media folder that is not a file we shipped comes from the
+ * storage bucket instead.
+ *
+ * The content database stores an image as a bare path — `images/icon.jpg` —
+ * which the templates hand straight to `<img src>`, so it resolves against this
+ * origin. That is right for the assets committed in `public/`, and wrong for
+ * everything uploaded in the admin afterwards, which lives in the bucket and
+ * would otherwise 404. Filling the gap here rather than in the templates keeps
+ * one rule for every image on the site, and keeps the paths in the database
+ * short and portable — the SEO tags and the sitemap build on them too.
+ */
+app.get(/^\/(images|icons|logo|partners|lottie)\/[^?]+$/, (req, res) => {
+  const base = (process.env['SUPABASE_URL'] ?? environment.supabase.url).replace(/\/$/, '');
+
+  if (!base) {
+    res.status(404).end();
+    return;
+  }
+
+  // the bucket's own CDN serves the file; this hop is cached for a day so a
+  // busy page does not repeat it on every render
+  res.set('Cache-Control', 'public, max-age=86400');
+  res.redirect(302, `${base}/storage/v1/object/public/media${req.path}`);
+});
 
 /**
  * Handle all other requests by rendering the Angular application.
