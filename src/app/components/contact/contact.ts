@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import emailjs from '@emailjs/browser';
+import { environment } from '../../../environments/environment';
 import { ContactInfoItem } from '../../core/content';
 import { I18n, Text } from '../../core/i18n';
 import { Reveal } from '../../shared/reveal';
@@ -21,6 +23,13 @@ export class Contact {
 
   readonly submitted = signal(false);
   readonly sent = signal(false);
+  readonly sending = signal(false);
+  readonly failed = signal(false);
+
+  readonly errorText: Text = {
+    ar: 'تعذر إرسال الرسالة، يرجى المحاولة مرة أخرى.',
+    en: 'Could not send your message. Please try again.',
+  };
 
   readonly form = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
@@ -39,17 +48,44 @@ export class Contact {
     return c.invalid && (c.touched || this.submitted());
   }
 
-  submit(): void {
+  async submit(): Promise<void> {
     this.submitted.set(true);
 
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
+    if (this.sending()) return;
 
-    // No backend is wired yet — surface a confirmation and reset the form.
-    this.sent.set(true);
-    this.form.reset();
-    this.submitted.set(false);
+    this.sending.set(true);
+    this.sent.set(false);
+    this.failed.set(false);
+
+    const { serviceId, templateId, publicKey } = environment.emailjs;
+    const v = this.form.getRawValue();
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: v.name,
+          from_name: v.name,
+          phone: v.phone,
+          email: v.email,
+          reply_to: v.email,
+          company: v.company,
+          message: v.message,
+        },
+        { publicKey },
+      );
+      this.sent.set(true);
+      this.form.reset();
+      this.submitted.set(false);
+    } catch {
+      this.failed.set(true);
+    } finally {
+      this.sending.set(false);
+    }
   }
 }

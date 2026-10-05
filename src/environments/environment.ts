@@ -5,4 +5,9 @@ export const environment = {
     anonKey:
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhxZ2VhYWdvZXR6amx1YXN6eWd1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY1MjU4MDUsImV4cCI6MjEwMjEwMTgwNX0.ff1ABB2ESMRISMNuJW3sv-_1fQGIK7xo_Mak8qKlNiI',
   },
+  emailjs: {
+    serviceId: 'service_3velf2g',
+    templateId: 'template_k01w4sb',
+    publicKey: 'SNM7SE-QzayAPRx4F',
+  },
 };

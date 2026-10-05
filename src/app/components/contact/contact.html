@@ -39,10 +39,13 @@
           <textarea id="message" rows="4" formControlName="message" [placeholder]="t(copy.messagePh)"></textarea>
         </div>
 
-        <button type="submit" class="btn btn--primary form__submit">{{ t(copy.submit) }}</button>
+        <button type="submit" class="btn btn--primary form__submit" [disabled]="sending()">{{ t(copy.submit) }}</button>
 
         @if (sent()) {
           <p class="form__ok">{{ t(copy.ok) }}</p>
+        }
+        @if (failed()) {
+          <p class="err">{{ t(errorText) }}</p>
         }
       </form>
     </div>
