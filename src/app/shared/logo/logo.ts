@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { I18n } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
 import { RouterLink } from "@angular/router";
 
 const LOCKUPS = {

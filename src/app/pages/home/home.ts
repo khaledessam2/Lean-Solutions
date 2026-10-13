@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { useSeo } from '../../core/seo';
+import { useSeo } from '../../services/seo';
 import { Hero } from '../../components/hero/hero';
 import { About } from '../../components/about/about';
 import { Services } from '../../components/services/services';
 import { Projects } from '../../components/projects/projects';
 import { Clients } from '../../components/clients/clients';
 import { Contact } from '../../components/contact/contact';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 @Component({
   selector: 'app-home',

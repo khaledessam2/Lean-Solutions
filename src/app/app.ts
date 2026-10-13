@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
-import { ContentStore } from './core/content-store';
+import { ContentStore } from './services/content-store';
 
 @Component({
   selector: 'app-root',

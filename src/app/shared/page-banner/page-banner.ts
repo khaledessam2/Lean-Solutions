@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { I18n, Text } from '../../core/i18n';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
 import { Crumb } from '../../core/seo';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 /**
  * One crumb between "home" and the current page. It is defined in `core/seo`

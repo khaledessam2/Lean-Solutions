@@ -3,9 +3,10 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../../environments/environment';
 import { ContactInfoItem } from '../../core/content';
-import { I18n, Text } from '../../core/i18n';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
 import { Reveal } from '../../shared/reveal';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 @Component({
   selector: 'app-contact',
@@ -40,6 +41,7 @@ export class Contact {
   });
 
   readonly copy = this.store.content.contact;
+  readonly linkedin = this.store.content.site.linkedin;
 
   readonly info: ContactInfoItem[] = this.store.content.contact.info;
 

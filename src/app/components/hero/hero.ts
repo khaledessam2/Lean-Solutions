@@ -9,10 +9,11 @@ import {
   signal,
 } from '@angular/core';
 import { HeroSlide } from '../../core/content';
-import { I18n, Text } from '../../core/i18n';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
 import { Lottie } from '../../shared/lottie/lottie';
 import { RouterLink } from '@angular/router';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 @Component({
   selector: 'app-hero',

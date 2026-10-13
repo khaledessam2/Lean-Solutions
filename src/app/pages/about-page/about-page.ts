@@ -2,12 +2,13 @@ import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Contact } from '../../components/contact/contact';
 import { CopyBlock } from '../../core/content';
-import { I18n, Text } from '../../core/i18n';
-import { useSeo } from '../../core/seo';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
+import { useSeo } from '../../services/seo';
 import { CheckIcon } from '../../shared/check-icon/check-icon';
 import { Pillars } from '../../shared/pillars/pillars';
 import { Reveal } from '../../shared/reveal';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 /**
  * The About page — every string is the live site's own copy, taken from

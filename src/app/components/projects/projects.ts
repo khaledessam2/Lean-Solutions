@@ -11,9 +11,10 @@ import {
 } from '@angular/core';
 import { ProjectCard } from '../../core/catalog';
 import { RouterLink } from '@angular/router';
-import { I18n, Text } from '../../core/i18n';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
 import { Reveal } from '../../shared/reveal';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 @Component({
   selector: 'app-projects',

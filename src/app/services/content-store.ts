@@ -1,15 +1,9 @@
 import { isPlatformServer } from '@angular/common';
-import {
-  Injectable,
-  InjectionToken,
-  PLATFORM_ID,
-  computed,
-  inject,
-  signal,
-} from '@angular/core';
-import { ProjectCard, ProjectDetail, ServiceCard, ServiceDetail } from './catalog';
-import { ContentRows, SiteData, fromRows } from './content-rows';
-import { PagesContent, SiteContent } from './content';
+import { Injectable, InjectionToken, PLATFORM_ID, computed, inject, signal } from '@angular/core';
+import { ProjectCard, ProjectDetail, ServiceCard, ServiceDetail } from '../core/catalog';
+import { PagesContent, SiteContent } from '../core/content';
+import { ContentRows, SiteData } from '../core/content-rows';
+import { ContentMapper } from './content-mapper';
 
 /**
  * Holds the site's copy for the lifetime of one render.
@@ -32,6 +26,7 @@ export const CONTENT_LOADER = new InjectionToken<() => Promise<ContentRows>>('CO
 export class ContentStore {
   private readonly isServer = isPlatformServer(inject(PLATFORM_ID));
   private readonly loader = inject(CONTENT_LOADER, { optional: true });
+  private readonly mapper = inject(ContentMapper);
 
   private readonly data = signal<SiteData | null>(null);
 
@@ -80,7 +75,7 @@ export class ContentStore {
   async load(): Promise<void> {
     try {
       const rows = this.loader ? await this.loader() : await this.fetchFromSite();
-      this.data.set(fromRows(rows));
+      this.data.set(this.mapper.fromRows(rows));
     } catch (error) {
       // an empty shell with an explanation beats a stack trace on a live site
       this.failure.set(String((error as Error)?.message ?? error));

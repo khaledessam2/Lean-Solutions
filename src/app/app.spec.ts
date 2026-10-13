@@ -2,8 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { provideRouter } from '@angular/router';
 import { App } from './app';
 import { routes } from './app.routes';
-import { CONTENT_FIXTURE } from './core/content.fixture';
-import { CONTENT_LOADER, ContentStore } from './core/content-store';
+import { CONTENT_FIXTURE } from './data/content.fixture';
+import { CONTENT_LOADER, ContentStore } from './services/content-store';
 import { Home } from './pages/home/home';
 import { AboutPage } from './pages/about-page/about-page';
 

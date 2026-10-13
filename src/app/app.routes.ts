@@ -27,6 +27,15 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () => import('./pages/contact-page/contact-page').then((m) => m.ContactPage),
   },
+  // static legal pages — the copy is written in each page's own template
+  {
+    path: 'privacy',
+    loadComponent: () => import('./pages/privacy-page/privacy-page').then((m) => m.PrivacyPage),
+  },
+  {
+    path: 'terms',
+    loadComponent: () => import('./pages/terms-page/terms-page').then((m) => m.TermsPage),
+  },
   // `kind` rides along as route data and lands on the component's input
   {
     path: 'services/:slug',

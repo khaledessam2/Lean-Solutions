@@ -1,13 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { FooterColumn } from '../../core/content';
-import { I18n, Text } from '../../core/i18n';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
 import { Logo } from '../../shared/logo/logo';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 @Component({
   selector: 'app-footer',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [Logo],
+  imports: [Logo, RouterLink],
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })

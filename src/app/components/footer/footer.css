@@ -50,6 +50,9 @@
   line-height: 1.7;
 }
 
+.footer__col li a { transition: color .2s ease; }
+.footer__col li a:hover { color: #fff; }
+
 .footer__bar {
   position: relative;
   margin-top: 54px;

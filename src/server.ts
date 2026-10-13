@@ -6,8 +6,8 @@ import {
 } from '@angular/ssr/node';
 import express from 'express';
 import { join } from 'node:path';
-import { TTL, clearContentCache, fetchContentRows } from './app/core/content-source.server';
-import { fromRows } from './app/core/content-rows';
+import { contentSource } from './app/services/content-source.server';
+import { ContentMapper } from './app/services/content-mapper';
 import { environment } from './environments/environment';
 
 const browserDistFolder = join(import.meta.dirname, '../browser');
@@ -26,7 +26,7 @@ const angularApp = new AngularNodeAppEngine();
  */
 app.get('/api/content', async (_req, res) => {
   try {
-    const rows = await fetchContentRows();
+    const rows = await contentSource.fetchRows();
 
     /**
      * The browser may hold it only as long as the server does, and no longer:
@@ -35,7 +35,7 @@ app.get('/api/content', async (_req, res) => {
      * its last good copy if Supabase is unreachable — so there is no
      * stale-while-revalidate window to widen this.
      */
-    res.set('Cache-Control', `public, max-age=${Math.round(TTL / 1000)}`).json(rows);
+    res.set('Cache-Control', `public, max-age=${Math.round(contentSource.ttl / 1000)}`).json(rows);
   } catch (error) {
     console.error('[content]', error);
     res.status(503).json({ error: 'The content database is unavailable.' });
@@ -49,7 +49,7 @@ app.get('/api/content', async (_req, res) => {
  */
 app.get('/sitemap.xml', async (_req, res) => {
   try {
-    const data = fromRows(await fetchContentRows());
+    const data = new ContentMapper().fromRows(await contentSource.fetchRows());
     const origin = data.content.site.origin.replace(/\/$/, '');
     const today = new Date().toISOString().slice(0, 10);
 
@@ -59,6 +59,8 @@ app.get('/sitemap.xml', async (_req, res) => {
       '/services',
       '/projects',
       '/contact',
+      '/privacy',
+      '/terms',
       ...Object.keys(data.serviceDetails).map((slug) => `/services/${slug}`),
       ...Object.keys(data.projectDetails).map((slug) => `/projects/${slug}`),
     ];
@@ -81,16 +83,18 @@ app.get('/sitemap.xml', async (_req, res) => {
       ].join('\n');
     });
 
-    res.type('application/xml').send(
-      [
-        '<?xml version="1.0" encoding="UTF-8"?>',
-        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-        '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-        ...urls,
-        '</urlset>',
-        '',
-      ].join('\n'),
-    );
+    res
+      .type('application/xml')
+      .send(
+        [
+          '<?xml version="1.0" encoding="UTF-8"?>',
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+          '        xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+          ...urls,
+          '</urlset>',
+          '',
+        ].join('\n'),
+      );
   } catch (error) {
     console.error('[sitemap]', error);
     res.status(503).type('text/plain').send('The content database is unavailable.');
@@ -111,7 +115,7 @@ app.post('/api/revalidate', (req, res) => {
     return;
   }
 
-  clearContentCache();
+  contentSource.clearCache();
   res.json({ ok: true });
 });
 

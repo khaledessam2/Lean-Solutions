@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Contact } from '../../components/contact/contact';
-import { I18n, Text } from '../../core/i18n';
-import { useSeo } from '../../core/seo';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
+import { useSeo } from '../../services/seo';
 import { PageBanner } from '../../shared/page-banner/page-banner';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 /**
  * The Contact page — the banner, the shared contact block (form + details card)

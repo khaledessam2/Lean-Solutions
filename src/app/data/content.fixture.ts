@@ -1,4 +1,4 @@
-import { ContentRows } from './content-rows';
+import { ContentRows } from '../core/content-rows';
 
 /**
  * A small but complete set of content rows, for tests.

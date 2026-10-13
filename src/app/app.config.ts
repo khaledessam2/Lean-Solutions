@@ -8,7 +8,7 @@ import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from 
 import { provideClientHydration } from '@angular/platform-browser';
 
 import { routes } from './app.routes';
-import { ContentStore } from './core/content-store';
+import { ContentStore } from './services/content-store';
 
 export const appConfig: ApplicationConfig = {
   providers: [

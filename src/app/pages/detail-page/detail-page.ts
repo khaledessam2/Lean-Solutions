@@ -1,12 +1,14 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
 import { Contact } from '../../components/contact/contact';
 import { ProjectDetail, ServiceDetail } from '../../core/catalog';
-import { I18n, Text } from '../../core/i18n';
-import { PageSeo, clamp, useSeo } from '../../core/seo';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
+import { PageSeo } from '../../core/seo';
+import { clamp, useSeo } from '../../services/seo';
 import { CheckIcon } from '../../shared/check-icon/check-icon';
 import { Crumb, PageBanner } from '../../shared/page-banner/page-banner';
 import { Reveal } from '../../shared/reveal';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 type Kind = 'service' | 'project';
 

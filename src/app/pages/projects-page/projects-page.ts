@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { Contact } from '../../components/contact/contact';
 import { ProjectCard } from '../../core/catalog';
 import { FilterTab } from '../../core/content';
-import { I18n, Text } from '../../core/i18n';
-import { clamp, useSeo } from '../../core/seo';
+import { Text } from '../../core/i18n';
+import { I18n } from '../../services/i18n';
+import { clamp, useSeo } from '../../services/seo';
 import { PageBanner } from '../../shared/page-banner/page-banner';
 import { Reveal } from '../../shared/reveal';
-import { ContentStore } from '../../core/content-store';
+import { ContentStore } from '../../services/content-store';
 
 @Component({
   selector: 'app-projects-page',

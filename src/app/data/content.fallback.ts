@@ -1,4 +1,4 @@
-import { ContentRows } from './content-rows';
+import { ContentRows } from '../core/content-rows';
 
 /**
  * The site's copy, as it stood when this file was written.
@@ -417,13 +417,6 @@ export const CONTENT_FALLBACK: ContentRows = {
               en: 'Authority of People with Disability',
             },
           },
-          {
-            logo: 'partners/Qima-Logo-v3.0-1.png',
-            name: {
-              ar: 'شركة قيمة للحلول لتقنية المعلومات',
-              en: 'Qima IT Solutions',
-            },
-          },
         ],
         title: {
           ar: 'نجاحات نفتخر بها',
@@ -593,30 +586,35 @@ export const CONTENT_FALLBACK: ContentRows = {
                   ar: 'الرئيسية',
                   en: 'Home',
                 },
+                path: '/',
               },
               {
                 label: {
                   ar: 'معلومات عنا',
                   en: 'About us',
                 },
+                path: '/about',
               },
               {
                 label: {
                   ar: 'المشاريع',
                   en: 'Projects',
                 },
+                path: '/projects',
               },
               {
                 label: {
                   ar: 'الخدمات',
                   en: 'Services',
                 },
+                path: '/services',
               },
               {
                 label: {
                   ar: 'اتصل بنا',
                   en: 'Contact us',
                 },
+                path: '/contact',
               },
             ],
             title: {
@@ -631,30 +629,35 @@ export const CONTENT_FALLBACK: ContentRows = {
                   ar: 'تطوير نظام إدارة التعلم',
                   en: 'LMS development',
                 },
+                path: '/services/lean-academy-lms',
               },
               {
                 label: {
                   ar: 'استراتيجية المحتوى',
                   en: 'Content strategy',
                 },
+                path: '/services/lean-academy-lms',
               },
               {
                 label: {
                   ar: 'تصميم الدورات',
                   en: 'Course design',
                 },
+                path: '/services/lean-academy-lms',
               },
               {
                 label: {
                   ar: 'التعلم عبر الهاتف',
                   en: 'Mobile learning',
                 },
+                path: '/services/lean-academy-lms',
               },
               {
                 label: {
                   ar: 'تحليلات التعلم',
                   en: 'Learning analytics',
                 },
+                path: '/services/lean-academy-lms',
               },
             ],
             title: {
@@ -669,30 +672,35 @@ export const CONTENT_FALLBACK: ContentRows = {
                   ar: 'تطوير الويب',
                   en: 'Web development',
                 },
+                path: '/services/website-development',
               },
               {
                 label: {
                   ar: 'تصميم الويب',
                   en: 'Web design',
                 },
+                path: '/services/ui-ux-design',
               },
               {
                 label: {
                   ar: 'الهندسة الكاملة',
                   en: 'Full-stack engineering',
                 },
+                path: '/services/web-application-development',
               },
               {
                 label: {
                   ar: 'تطوير الهواتف المحمولة',
                   en: 'Mobile development',
                 },
+                path: '/services/mobile-application-development',
               },
               {
                 label: {
                   ar: 'تطوير الواجهة الأمامية',
                   en: 'Front-end development',
                 },
+                path: '/services/web-application-development',
               },
             ],
             title: {
@@ -707,24 +715,28 @@ export const CONTENT_FALLBACK: ContentRows = {
                   ar: 'تطوير الاستراتيجيات وتنفيذها',
                   en: 'Strategy development and execution',
                 },
+                path: '/services/strategy-management',
               },
               {
                 label: {
                   ar: 'تطوير النماذج التشغيلية واطر الحوكمة',
                   en: 'Operating models and governance frameworks',
                 },
+                path: '/services/organization-design',
               },
               {
                 label: {
                   ar: 'ادارة وتشغيل مكاتب ادارة المشاريع',
                   en: 'PMO setup and operation',
                 },
+                path: '/services/program-management',
               },
               {
                 label: {
                   ar: 'تطوير ادلة واجراءات العمل',
                   en: 'Manuals and work procedures',
                 },
+                path: '/services/policies-and-management-systems',
               },
             ],
             title: {
