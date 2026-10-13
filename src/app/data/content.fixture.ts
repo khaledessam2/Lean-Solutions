@@ -148,8 +148,6 @@ export const CONTENT_FIXTURE: ContentRows = {
       data: {
         about: text('One integrated platform'),
         rights: text('All rights reserved'),
-        privacy: text('Privacy policy'),
-        terms: text('Terms'),
         columns: [{ title: text('Quick links'), links: [{ label: text('Home') }] }],
       },
     },

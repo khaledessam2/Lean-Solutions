@@ -59,8 +59,6 @@ app.get('/sitemap.xml', async (_req, res) => {
       '/services',
       '/projects',
       '/contact',
-      '/privacy',
-      '/terms',
       ...Object.keys(data.serviceDetails).map((slug) => `/services/${slug}`),
       ...Object.keys(data.projectDetails).map((slug) => `/projects/${slug}`),
     ];

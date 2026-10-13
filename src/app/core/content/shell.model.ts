@@ -17,8 +17,6 @@ export interface FooterColumn {
 export interface FooterContent {
   about: Text;
   rights: Text;
-  privacy: Text;
-  terms: Text;
   columns: FooterColumn[];
 }
 

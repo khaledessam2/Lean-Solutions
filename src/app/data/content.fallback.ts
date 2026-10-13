@@ -570,10 +570,6 @@ export const CONTENT_FALLBACK: ContentRows = {
           ar: 'تقدم منصة متكاملة للتعليم الالكتروني و التحول الرقمي والاستشارات الادارية، تدعم المؤسسات بحلول ذكية ومرنة تعزز التطوير والابتكار.',
           en: 'One integrated platform for e-learning, digital transformation and management consulting — supporting organisations with smart, flexible solutions that drive development and innovation.',
         },
-        terms: {
-          ar: 'الشروط والأحكام',
-          en: 'Terms and conditions',
-        },
         rights: {
           ar: 'لين بيزنس سوليشن جميع الحقوق محفوظة.',
           en: 'Lean Business Solutions. All rights reserved.',
@@ -745,10 +741,6 @@ export const CONTENT_FALLBACK: ContentRows = {
             },
           },
         ],
-        privacy: {
-          ar: 'سياسة الخصوصية',
-          en: 'Privacy policy',
-        },
       },
     },
     {
